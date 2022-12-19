@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Asset/css/cart.css">
+
+<!--banner-->
+<div class="banner">
+    <h1>Giỏ hàng</h1>
+</div>
+
+<!-- body page -->
+<div class="body_page">
+
+    <div class="body_page-menu">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Trang chủ
+                </a>
+            </li>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+            <li><a href="">Giỏ hàng</a></li>
+        </ul>
+    </div>
+
+    <div class="table_main">
+
+        <table class="table table-responsive">
+
+            <thead>
+                <tr>
+                    <th class="product-thumbnail">Hình ảnh</th>
+                    <th class="product-name">Tên sản phẩm</th>
+                    <th class="product-price">Giá</th>
+                    <th class="product-quantity">Số lượng</th>
+                    <th class="product-total">Tổng</th>
+                    <th class="product-remove">Xóa sản phẩm</th>
+                    <!-- <i class="fa-solid fa-xmark"></i> -->
+                </tr>
+            </thead>
+
+            <!-- content -->
+            <tbody>
+
+                <!-- product -->
+                <tr>
+                    <th class="product-thumbnail">
+                        <a href="#">
+                            <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
+                        </a>
+                    </th>
+                    <th class="product-name">
+                        <a href="#">
+                            Vòng đeo tay bằng Ruby và Kim cương 18K
+                        </a>
+                    </th>
+                    <th class="product-price">
+                        <span>
+                            3.169.000 đ
+                        </span>
+                    </th>
+                    <th class="product-quantity">
+                        <div class="cart-plus-minus">
+                            <button class="dec qtybutton">-</button>
+                            <input type="text" value="1">
+                            <button class="inc qtybutton">+</button>
+                        </div>
+                    </th>
+                    <th class="product-total">
+                        <span>3.169.000 đ</span>
+                    </th>
+                    <th class="product-remove">
+                        <button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </th>
+                </tr>
+                <!-- product -->
+                <tr>
+                    <th class="product-thumbnail">
+                        <a href="#">
+                            <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
+                        </a>
+                    </th>
+                    <th class="product-name">
+                        <a href="#">
+                            Nhẫn Ngọc lục bảo và Kim cương 14K
+                        </a>
+                    </th>
+                    <th class="product-price">
+                        <span>5.090.000 đ</span>
+                    </th>
+                    <th class="product-quantity">
+                        <div class="cart-plus-minus">
+                            <button class="dec qtybutton">-</button>
+                            <input type="text" value="1">
+                            <button class="inc qtybutton">+</button>
+                        </div>
+                    </th>
+                    <th class="product-total">
+                        <span>5.090.000 đ</span>
+                    </th>
+                    <th class="product-remove">
+                        <button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </th>
+                </tr>
+
+                <!-- product -->
+                <tr>
+                    <th class="product-thumbnail">
+                        <a href="#">
+                            <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
+                        </a>
+                    </th>
+                    <th class="product-name">
+                        <a href="#">
+                            Vòng cổ Sapphire và Kim cương 18K
+                        </a>
+                    </th>
+                    <th class="product-price">
+                        <span>
+                            1.088.000 đ
+                        </span>
+                    </th>
+                    <th class="product-quantity">
+                        <div class="cart-plus-minus">
+                            <button class="dec qtybutton">-</button>
+                            <input type="text" value="2">
+                            <button class="inc qtybutton">+</button>
+                        </div>
+                    </th>
+                    <th class="product-total">
+                        <span>2.176.000 đ</span>
+                    </th>
+                    <th class="product-remove">
+                        <button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </th>
+                </tr>
+
+
+
+            </tbody>
+
+        </table>
+
+        <div class="table table-non-responsive">
+
+            <ul>
+                <li class="list_card">
+                    <div class="card_img">
+                        <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
+                    </div>
+                    <div class="card_infor">
+                        <a href="#" class="title">Vòng đeo tay bằng Ruby và Kim cương 18K</a><br>
+                        <span class="price">3.169.000 đ</span>
+                        <div class="product-quantity">
+                            <button>-</button>
+                            <input type="text" value="1">
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="deleteProduct">
+                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </li>
+                <li class="list_card">
+                    <div class="card_img">
+                        <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
+                    </div>
+                    <div class="card_infor">
+                        <a href="#" class="title">Nhẫn Ngọc lục bảo và Kim cương 14K</a><br>
+                        <span class="price">5.090.000 đ</span>
+                        <div class="product-quantity">
+                            <button>-</button>
+                            <input type="text" value="1">
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="deleteProduct">
+                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </li>
+                <li class="list_card">
+                    <div class="card_img">
+                        <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
+                    </div>
+                    <div class="card_infor">
+                        <a href="#" class="title">Vòng cổ Sapphire và Kim cương 18K</a><br>
+                        <span class="price">2.176.000 đ</span>
+                        <div class="product-quantity">
+                            <button>-</button>
+                            <input type="text" value="2">
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="deleteProduct">
+                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="coupon_clear">
+        <div class="couponCode">
+            <input type="text" placeholder="Mã giảm giá">
+            <button>OK</button>
+        </div>
+        <div class="clearCart">
+            <button>Xóa tất cả</button>
+        </div>
+    </div>
+
+    <div class="body_page-footer">
+        <div class="empty_page"></div>
+        <div class="CartTotals">
+            <h2>Tổng tiền</h2>
+            <ul>
+                <li>
+                    <span class="title">Tạm tính</span>
+                    <span class="price">10.435.000 đ</span>
+                </li>
+                <li>
+                    <span class="title">Giảm giá</span>
+                    <span class="price">10.000 đ</span>
+                </li>
+                <li>
+                    <span class="title">Tổng</span>
+                    <span class="price">10.425.000 đ</span>
+                </li>
+            </ul>
+            <button class="totals_btns">
+                @*<a href="checkout.html">Thanh toán</a>*@
+                @Html.ActionLink("Thanh toán", "Checkout", "Shop")
+            </button>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,354 @@
+.body_page {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    /* zoom: 80%; */
+}
+
+.body_page-slides {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.body_page-slides-card {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    transition: all 0.5s ease;
+}
+
+.body_page-slides-card a {
+    flex: 1 0 100%;
+}
+
+.body_page-slides-card-list-btn {
+    position: absolute;
+    left: 47%;
+    color: #fff;
+    bottom: 10px;
+}
+
+.body_page-slides-card-list-btn ul {
+    display: flex;
+    align-items: center;
+}
+
+.body_page-slides-card-list-btn ul li {
+    padding: 5px;
+    border-radius: 50%;
+    background: #fff;
+    /* border: 2px solid #bc8247; */
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.main_page {
+    background: #ecf0f1;
+}
+
+.footer_page {
+    background: #151616;
+}
+
+.footer_page h3 {
+    color: #fff;
+}
+
+.body_page_container {
+    width: 100%;
+    background: #fff;
+}
+
+.footer_container {
+    width: 100%;
+    background: #151616;
+    height: 100%;
+}
+
+/*  */
+.body_page-popular-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.body_page-popular-product button {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: scale(0);
+    transition: all 0.5s;
+    cursor: pointer;
+    border: none;
+}
+
+.body_page-popular-product button a {
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 15px;
+    background: #e32124;
+    border: 2px double #fff;
+    border-radius: 6px;
+}
+
+.body_page-popular-product-card {
+    width: 32%;
+    height: 200px;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+.body_page-popular-product-card:hover {
+    transform: scale(0.9);
+}
+
+.body_page-popular-product-card:hover button {
+    transform: scale(1);
+}
+
+/*  */
+.body_page-trending-product {
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.body_page-trending-product-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.body_page-trending-product-title p {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.body_page-trending-product-title::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    border-top: 1px solid #ebebeb;
+    top: 55%;
+}
+
+.body_page-trending-product-des {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.body_page-trending-product-des p {
+    color: #dadada;
+}
+
+.body_page-trending-product-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.body_page-trending-product-list-card {
+    width: 19%;
+    border: 1px solid #dadada;
+    height: 350px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 6px;
+}
+
+.body_page-trending-product-list-card .card-image {
+    height: 50%;
+    transition: all .3s;
+}
+
+.body_page-trending-product-list-card .card-image img {
+    border-radius: 10px 10px 0 0;
+}
+
+.body_page-trending-product-list-card .card-image:hover {
+    transform: scale(0.8);
+}
+
+.body_page-trending-product-list-card .card-title-price {
+    padding: 10px;
+    line-height: 1.5;
+    height: 30%;
+}
+
+.body_page-trending-product-list-card .card-title-price p {
+    font-weight: 300;
+}
+
+.body_page-trending-product-list-card .card-title-price span {
+    color: #e32124;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.body_page-trending-product-list-card .card-btn {
+    padding: 10px 0;
+    height: 20%;
+}
+
+.body_page-trending-product-list-card .card-btn button {
+    padding: 10px;
+    /* background: #e32124; */
+    /* color: #fff; */
+    border: 1px solid #bc8247;
+    background: none;
+    color: #bc8247;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.body_page-trending-product-list-card .card-btn button a {
+    color: #bc8247;
+    transition: all .3s;
+}
+
+.body_page-trending-product-list-card .card-btn button:hover {
+    transform: scale(0.9);
+    background: #bc8247;
+    color: #fff;
+}
+
+.body_page-trending-product-list-card .card-btn button:hover a {
+    color: #fff;
+}
+
+.body_page-trending-product-seeMoreBtn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.body_page-trending-product-seeMoreBtn button {
+    border: 2px solid #bc8247;
+    padding: 10px 40px;
+    background: none;
+    transition: all .3s ease;
+}
+
+.body_page-trending-product-seeMoreBtn button a {
+    font-weight: bold;
+    color: #bc8247;
+    font-size: 14px;
+    transition: all .3s ease;
+}
+
+.body_page-trending-product-seeMoreBtn button:hover {
+    transform: scale(0.9);
+    background: #bc8247;
+}
+
+.body_page-trending-product-seeMoreBtn button:hover a {
+    color: #fff;
+}
+
+/*  */
+.body_page-sub-product {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/*  */
+.body_page-subscribe {
+    border-top: 1px solid #ebebeb;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.body_page-subscribe-title {
+    margin-bottom: 20px;
+}
+
+.body_page-subscribe-title h1 {
+    font-weight: normal;
+}
+
+.body_page-subscribe-des {
+    color: #dadada;
+    margin-bottom: 50px;
+}
+
+.body_page-subscribe-input {
+    margin-bottom: 50px;
+}
+
+.body_page-subscribe-input input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    outline: none;
+}
+
+.body_page-subscribe-input input::placeholder {
+    text-align: center;
+}
+
+.body_page-subscribe-btn button {
+    background: none;
+    padding: 10px 50px;
+    border: 2px solid #bc8247;
+    font-weight: bold;
+    color: #bc8247;
+    font-size: 14px;
+    transition: all .3s;
+}
+
+.body_page-subscribe-btn button:hover {
+    transform: scale(0.9);
+    background: #bc8247;
+    color: #fff;
+}
+
+/*  */
+/* responsive */
+@media screen and (max-width: 428px) {
+    .body_page {
+        width: 100%;
+    }
+
+    .body_page-slides-card {
+        height: 300px;
+    }
+
+    .body_page-slides-card-list-btn {
+        left: 45%;
+    }
+
+    .body_page-popular-product {
+        display: inline-block;
+        padding: 20px;
+        display: none;
+    }
+
+    .body_page-popular-product-card {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .body_page-trending-product-list-card {
+        width: 100%;
+    }
+
+
+}

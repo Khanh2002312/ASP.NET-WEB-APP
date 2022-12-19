@@ -1,0 +1,313 @@
+﻿@using LT.NET_project_cuoiki.Entity
+
+@model LT.NET_project_cuoiki.Models.DetailModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<link rel="stylesheet" href="~/Asset/css/productdetails.css">
+<link rel="stylesheet" href="~/Asset/css/lightslider.css">
+<link rel="stylesheet" href="~/Asset/css/bootstrap.min.css">
+
+<div class="body_page-menu">
+    <ul>
+        <li>
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Trang chủ
+            </a>
+        </li>
+        <span><i class="fa-solid fa-chevron-right"></i></span>
+        <li class="second"><a href="">Nhẫn</a></li>
+        <span><i class="fa-solid fa-chevron-right"></i></span>
+        <li><a href="">@Model.Product.Title</a></li>
+    </ul>
+</div>
+<div class="product_details" style="background:#fff">
+    <div class="product_detail-area">
+        <div class="container">
+            <div class="row">
+                <div class="product-div-left col-xl-6 col-lg-6">
+                    <div class="img_container">
+
+                        <img src="~/Asset/@Url.Content(Model.Product.Thumbnail)" alt="">
+                    </div>
+                    <div class="hover_container">
+                        <div>
+                            <img src="~/Asset/@Url.Content(Model.Product.Thumbnail)" alt="">
+                        </div>
+                        <div>
+                            <img src="~/Asset/@Url.Content(Model.Product.Thumbnail)" alt="">
+                        </div>
+                        <div>
+                            <img src="~/Asset/@Url.Content(Model.Product.Thumbnail)" alt="">
+                        </div>
+                        <div>
+                            <img src="~/Asset/@Url.Content(Model.Product.Thumbnail)" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-div-right col-xl-6 col-lg-6">
+                    <span class="product_name mb_18">@Model.Product.Title</span>
+                    @{
+                        string price = Model.Product.Price.ToString();
+                        string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
+                        string discount = Model.Product.Discount.ToString();
+                        string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                    }
+                    <span class="product_price mb_18"><Strike style="color:gray">@Html.Raw(priceForm) </Strike> @Html.Raw(discountForm)  </span>
+                    <div class="product_rating mb_18">
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                        <span>(2 đánh giá)</span>
+                    </div>
+                    <span class="product_design mb_18">Thiết kế: <b>@Model.Product.Design</b> </span>
+                    <span class="product_status mb_18">
+                        Tình trạng: <i>
+                            @if (Model.Product.Quantity > 0)
+                            {
+                                @Html.Raw("Còn hàng");
+                            }
+                            else
+                            {
+                                @Html.Raw("Hết hàng");
+                            }
+                        </i>
+                    </span>
+                    <div class="size_quantity">
+                        <div class="quantity_wrapper">
+                            <div style="margin-right: 15px; text-align: center">Số lượng</div>
+                            <div class="wrapper">
+                                <span class="button minus">-</span>
+                                <input type="text" value="1" class="number">
+                                <span class="button plus">+</span>
+                            </div>
+                        </div>
+                        <div class="size_wrapper">
+                            <div style="margin-right: 15px">Kích cỡ</div>
+                            <select class="select_size">
+                                <option>-- Vui lòng chọn --</option>
+                                <option>5 - 15.6mm</option>
+                                <option>5.5 - 16.0mm</option>
+                                <option>6 - 16.45mm</option>
+                                <option>6.5 - 16.9mm</option>
+                                <option>7 - 17.3mm</option>
+                                <option>7.5 - 17.7mm</option>
+                                <option>8 - 18.2mm</option>
+                                <option>8.5 - 18.6mm</option>
+                                <option>9 - 19.0mm</option>
+                                <option>9.5 - 19.4mm</option>
+                                <option>10 - 19.8mm</option>
+                                <option>10.5 - 20.2mm</option>
+                                <option>11 - 20.6mm</option>
+                                <option>11.5 - 21.0mm</option>
+                                <option>12 - 21.4mm</option>
+                                <option>12.5 - 21.8mm</option>
+                                <option>13.5 - 22.2mm</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn"><span>Hướng dẫn chọn kích cỡ<i class="fa-solid fa-chevron-right"></i></span></button>
+                    <div class="btn-groups">
+                        <button type="button" class="add_cart_btn">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            thêm vào giỏ hàng
+                        </button>
+                        <button type="button" class="buy_now_btn">
+                            <i class="fa-solid fa-wallet"></i>
+                            mua ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--tab-->
+    <div class="tabs_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="product_details-tab">
+                        <!--tab items-->
+                        <div class="tabs">
+                            <ul class="nav-tabs">
+                                <li class="active"><a href="#menu_1"><strong>Mô tả</strong></a></li>
+                                <li><a href="#menu_2"><strong>Thông tin chi tiết</strong></a></li>
+                                <li><a href="#menu_3"><strong>Đánh giá</strong></a></li>
+                            </ul>
+                        </div>
+                        <!--tab contents-->
+                        <div class="tab-content">
+                            <div id="menu_1" class="tab-content-item">
+                                <p>
+                                    &emsp;&emsp;&emsp;@Model.Product.Description
+                                </p>
+
+                            </div>
+                            <div id="menu_2" class="tab-content-item">
+                                <div class="table-wrapper">
+                                    <table class="table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Giá:</b></td>
+                                                <td>@Html.Raw(discountForm)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Danh mục:</b></td>
+                                                <td>@Model.CategoryName</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Đá quý:</b></td>
+                                                <td>@Model.Gem</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Màu kim loại:</b></td>
+                                                <td>Vàng vàng</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Thiết kế:</b></td>
+                                                <td>@Model.Product.Design</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="menu_3" class="tab-content-item">
+                                <div class="product_review_form">
+                                    <ol class="comment_list">
+                                        <li class="comment">
+                                            <div class="comment_container">
+                                                <div class="review_top">
+                                                    <strong class="review_author">Hoàng Thị Bích Ngọc</strong>
+                                                </div>
+                                                <div class="review_mid">
+                                                    <div class="star_rating">
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Giao siêu nhanh, đặt hôm trước hôm sau
+                                                        có. Sản phẩm giống ảnh.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="comment">
+                                            <div class="comment_container">
+                                                <div class="review_top">
+                                                    <strong class="review_author">Nguyễn Văn Hoàng</strong>
+                                                </div>
+                                                <div class="review_mid">
+                                                    <div class="star_rating">
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Đóng gói cẩn thận. Shop giao hàng
+                                                        nhanh. Sẽ tiếp tục ủng hộ!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                    <form action="#">
+                                        <h2>Thêm nhận xét</h2>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label for="review_comment">Nhận xét của bạn </label>
+                                                <div class="star_rating" style="margin-bottom: 20px;">
+                                                    <span><a href=""><i class="fa-regular fa-star"></i></a></span>
+                                                    <span><a href=""><i class="fa-regular fa-star"></i></a></span>
+                                                    <span><a href=""><i class="fa-regular fa-star"></i></a></span>
+                                                    <span><a href=""><i class="fa-regular fa-star"></i></a></span>
+                                                    <span><a href=""><i class="fa-regular fa-star"></i></a></span>
+                                                </div>
+                                                <textarea name="comment" id="review_comment"></textarea>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <label for="author">Tên </label>
+                                                <input id="author" type="text">
+
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <label for="email">Email </label>
+                                                <input id="email" type="text">
+                                            </div>
+                                        </div>
+                                        <button type="submit">Gửi</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--related_product-->
+    <div class="related_products">
+        <div class="title" style="margin-bottom: 30px">
+            <h2 style="text-align: center">Sản phẩm liên quan</h2>
+        </div>
+        <div class="box container">
+            <ul id="autoWidth" class="cs-hidden" style="display:flex;justify-content:space-between">
+                @foreach (var item in Model.ListProduct.Take(10))
+                {
+                    string priceList = item.Price.ToString();
+                    string priceFormList = priceList.Substring(0, priceList.Length - 6) + "." + priceList.Substring(priceList.Length - 6, 3) + "." + priceList.Substring(priceList.Length - 3) + " đ";
+                    string discountList = item.Discount.ToString();
+                    string discountFormList = discountList.Substring(0, discountList.Length - 6) + "." + discountList.Substring(discountList.Length - 6, 3) + "." + discountList.Substring(discountList.Length - 3) + " đ";
+
+                <li class="item-a">
+                    <div class="body_page-trending-product-list-card">
+                        <div class="card-image">
+                            <a href="@Url.Action("Details", new { id = item.Id })"><img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt=""></a>
+                        </div>
+                        <div class="card-title-price">
+                            <a href="@Url.Action("Details", new { id = item.Id })"><p>@item.Title</p></a>
+                            <span><strike style="color:gray">@Html.Raw(priceFormList)</strike>  @Html.Raw(discountFormList)</span>
+                            
+                        </div>
+                        <div class="card-btn">
+                            <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
+                            <button>Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2><strong>Bảng size nhẫn</strong></h2>
+        <div style="margin: 15px 0"><img src="~/Asset/img/ring-size-chart.png" alt=""></div>
+        <h2><strong>Cách đơn giản nhất để đo size nhẫn</strong></h2>
+        <h3><strong>Đo bằng tờ giấy & thước</strong></h3>
+        <p>Bước 1:&nbsp;Chuẩn bị một cây thước, 1 cây kéo, 1 cây bút &amp; một tờ giấy</p>
+        <p>Bước 2:&nbsp;Cắt một mảnh giấy dài khoảng 10 cm và rộng 1 cm.</p>
+        <p>Bước 3:&nbsp;Sử dụng đoạn giấy vừa cắt để quấn sát quanh ngón tay muốn đo.</p>
+        <p>Bước 4:&nbsp;Đánh dấu điểm giao nhau.</p>
+        <p>Bước 5:&nbsp;Tháo ra dùng thước đo chiều dài của đoạn giấy từ điểm đầu cho đến phần đánh dấu. Lấy kết quả đo được chia cho 3,14. Sau đó đối chiếu với&nbsp;Bảng size nhẫn.</p>
+    </div>
+</div>
+

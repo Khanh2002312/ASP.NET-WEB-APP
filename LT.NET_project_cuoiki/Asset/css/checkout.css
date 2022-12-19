@@ -1,0 +1,449 @@
+.header_page{
+    background-color: #E4E4E4;
+    width: 100%;
+}
+.header_page-main{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #E4E4E4;
+}
+.sticky {
+    width: 100%;
+    background: #fff;
+}
+.body_page {
+    width: 100%;
+    overflow: auto;
+}
+
+.body_page-menu {
+    padding: 15px;
+    background: #b2bec3;
+}
+
+.body_page-menu ul {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.body_page-menu ul li {
+    margin-right: 10px;
+}
+
+.body_page-menu span {
+    margin-right: 10px;
+}
+
+.body_page-menu ul li:first-child:hover a {
+    color: #bc8247;
+}
+
+.body_page-menu ul li a {
+    color: #000;
+    transition: all 0.2s;
+}
+
+.body_page-menu ul li a i {
+    margin-right: 3px;
+    font-size: 14px;
+}
+/*  */
+.body_page-main {
+    width: 80%;
+    margin: 50px auto;
+    justify-content: space-between;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Click box */
+
+.clickbox {
+    width: 100%;
+    height: 50px;
+    background: #f5f5f5;
+    border-top: 3px solid #ba8045;
+    padding: 14px 28px;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.clickbox span {
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.text-inbox {
+    margin-left: 28px;
+    font-weight: 400;
+}
+
+.text-inbox span {
+    margin-left: 10px;
+    color: #6f7172;
+}
+
+.text-inbox span:hover {
+    color: #bc8246;
+}
+
+/* coupon */
+
+.right-container .enter-Coupon .item-1 input {
+    border: 3px solid #eaedff;
+    height: 65px;
+    padding-left: 10px;
+    width: 100%;
+    color: black;
+    outline: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.right-container #useCoupon {
+    margin-bottom: 50px;
+}
+
+button.apply-coupon {
+    color: #fff;
+    border: 2px solid #ebebeb;
+    width: 30% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: #323232;
+    border-radius: 5px;
+}
+
+button.apply-coupon:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+/* login */
+
+button.login-button {
+    color: #fff;
+    border: 2px solid #ebebeb;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: #323232;
+    border-radius: 5px;
+}
+
+button.login-button:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.save .lost-pass a {
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+
+}
+
+.save .lost-pass a:hover {
+    color: #bc8246;
+    transition: all .3s ease-out 0s;
+}
+
+.save {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* left container */
+.left-container {
+    flex-basis: 49%;
+}
+
+.left-container .checkout-area h3 {
+    border-bottom: 1px solid #eaedff;
+    font-size: 26px;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-weight: 500;
+    line-height: 1.2;
+    color: black;
+}
+
+.left-container .checkout-area h3.difference-Add {
+    display: inline-block;
+}
+
+.left-container .checkout-area .item-1 .input-text, .checkout-login .item-1 {
+    margin-bottom: 30px;
+}
+
+.left-container .checkout-area label {
+    color: #6f7172;
+    display: block;
+    margin: 0 0 5px;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+.left-container .checkout-area input::placeholder {
+    color: #6f7172;
+}
+
+.left-container .checkout-area .item-1 input {
+    border: 3px solid #eaedff;
+    height: 65px;
+    padding-left: 10px;
+    width: 100%;
+    color: black;
+    outline: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 10px;
+}
+
+.left-container .checkout-area .item-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-container .checkout-area .item-2 .item-1 {
+    flex-basis: 49%;
+}
+
+.left-container .checkout-area .item-1 input[type = checkbox] {
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+}
+
+.left-container .checkout-area label#label-New-Account {
+    display: inline-block;
+}
+
+.left-container .checkout-area .item-1 textarea {
+    border: 3px solid #eaedff;
+    height: 90px;
+    padding: 15px;
+    width: 100%;
+    outline: 0;
+    border-radius: 10px;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    resize: vertical;
+}
+
+.left-container .checkout-area #difference-Add {
+    display: none;
+}
+
+.left-container .checkout-area, .newAccount p {
+    margin-bottom: 15px;
+    color: #6f7172;
+}
+
+.left-container .newAccount {
+    display: none;
+}
+
+.left-container .checkout-login {
+    border: 1px solid #eaedff;
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.left-container .checkout-login .item-1 input {
+    border: 3px solid #eaedff;
+    height: 65px;
+    padding-left: 10px;
+    width: 100%;
+    color: black;
+    outline: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 5px;
+}
+
+
+/* Right container */
+
+.right-container {
+    flex-basis: 49%;
+}
+
+
+.right-container .your-order {
+    padding: 30px 40px 45px;
+    border: 3px solid #eaedff;
+    border-radius: 10px;
+}
+
+.right-container .your-order h3 {
+    border-bottom: 1px solid #eaedff;
+    font-size: 30px;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.right-container .order-table table {
+    width: 100%;
+}
+
+.right-container .order-table td, th {
+    border-top: none;
+    color: #6f7172;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 50%;
+    padding: 15px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #eaedff;
+}
+
+
+.right-container .order-table .order-total td span {
+    color: #bc8246;
+    font-size: 18px;
+    font-weight: 500;
+
+}
+
+button.place-order {
+    color: #fff;
+    border: 2px solid #ebebeb;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: #323232;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button.place-order:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+/* Collapible set*/
+.collapsible_set {
+    margin-top: 40px;
+}
+
+button#collapsible1, button#collapsible2, button#collapsible3 {
+    width: 100%;
+    padding: 8px 20px;
+    letter-spacing: 1px;
+    font-family: Poppins, sans-serif;
+    color: #201f1f;
+    margin-top: 0;
+    font-weight: 500;
+    text-align: left;
+    font-size: 18px;
+    background: white;
+    border: 1px solid #eaedff;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.content1, .content2, .content3 {
+    padding: 0 16px;
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid #eaedff;
+    margin-top: -1px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+
+}
+
+.content1 p, .content2 p, .content3 p {
+    padding: 10px;
+    color: #838a89;
+}
+
+.show {
+    transition: max-height 0.5s;
+    max-height: 300px;
+}
+
+/* responsive */
+@media screen and (max-width: 428px) {
+    .checkout-container, .item-2 {
+        flex-direction: column;
+    }
+
+    .checkout-area, .your-order, .right-container form, .left-container form {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .body_page-main {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .your-order {
+        padding: 15px !important;
+    }
+
+    .body_page-menu ul {
+        /* display: inline-block; */
+        width: 100%;
+    }
+
+    .body_page-main-address,
+    .body_page-main-form {
+        width: 100%;
+    }
+}

@@ -1,0 +1,471 @@
+.header_page {
+    background-color: #E4E4E4;
+    width: 100%;
+}
+
+.header_page-main {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #E4E4E4;
+}
+
+.sticky {
+    width: 100%;
+    background: #fff;
+}
+
+.body_page {
+    width: 100%;
+    overflow: auto;
+}
+
+.body_page-menu {
+    padding: 15px;
+    background: #b2bec3;
+}
+
+.body_page-menu ul {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.body_page-menu ul li {
+    margin-right: 10px;
+}
+
+.body_page-menu span {
+    margin-right: 10px;
+}
+
+.body_page-menu ul li:first-child:hover a {
+    color: #bc8247;
+}
+
+.body_page-menu ul li a {
+    color: #000;
+    transition: all 0.2s;
+}
+
+.body_page-menu ul li a i {
+    margin-right: 3px;
+    font-size: 14px;
+}
+
+input,
+button {
+    outline: 0;
+    border-radius: 5px;
+}
+
+/*login form*/
+.body_page-main {
+    width: 45%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.body_page-main .login-container {
+    border: #e9ecfe solid 2px;
+    padding: 90px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.body_page .login-container .text-header {
+    margin: auto;
+    text-align: center;
+}
+
+.body_page .login-container .text-header h3 {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 60px;
+}
+
+.body_page .login-container form input[type=email],
+input[type=password] {
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    border: 2px solid #eaedff;
+    color: #6f7172;
+    margin-bottom: 20px;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.body_page .login-container form input[type=checkbox] {
+    height: 14px;
+    width: 14px;
+}
+
+.body_page .login-container form label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+    color: #222;
+}
+
+.body_page .login-container form label span {
+    color: red;
+}
+
+.body_page .login-container form .save .lost-pass a {
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+
+}
+
+.body_page .login-container form .save .lost-pass a:hover {
+    color: #bc8246;
+    transition: all .3s ease-out 0s;
+}
+
+.body_page .login-container form .save {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.body_page .login-container form button.login-button {
+    color: #323232;
+    border: 2px solid #ebebeb;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: transparent;
+}
+
+.body_page .login-container form button.login-button:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.body_page .login-container form .or {
+    margin: 40px 0;
+    text-align: center;
+
+    color: #848b8a;
+    border-top: 2px solid #eaedff;
+    position: relative;
+}
+
+.body_page .login-container form .or span {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+    right: 0;
+    left: 0;
+    top: -14px;
+    background: white;
+    width: 70px;
+    margin: auto;
+}
+
+.body_page .login-container form button.register-button {
+    color: #fff;
+    border: 2px solid #323232;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: #323232;
+}
+
+.body_page .login-container form button.register-button:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+
+/* register form */
+.register-container {
+    border: #e9ecfe solid 2px;
+    padding: 60px 90px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.body_page .register-container .text-header {
+    margin: auto;
+    text-align: center;
+}
+
+.body_page .register-container .text-header h3 {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 60px;
+}
+
+.body_page .register-container form input[type=email],
+input[type=password],
+input[type=text] {
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    border: 2px solid #eaedff;
+    color: #6f7172;
+    margin-bottom: 20px;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.body_page .register-container form input[type=checkbox] {
+    height: 14px;
+    width: 14px;
+}
+
+.body_page .register-container form label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+    color: #222;
+}
+
+.body_page .register-container form label span {
+    color: red;
+}
+
+.body_page .register-container form .save .lost-pass a {
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+
+}
+
+.body_page .register-container form .save .lost-pass a:hover {
+    color: #bc8246;
+    transition: all .3s ease-out 0s;
+}
+
+.body_page .register-container form .save {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.body_page .register-container form button.register-button {
+    color: #323232;
+    border: 2px solid #ebebeb;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: transparent;
+}
+
+.body_page .register-container form button.register-button:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.body_page .register-container form .or {
+    margin: 40px 0;
+    text-align: center;
+
+    color: #848b8a;
+    border-top: 2px solid #eaedff;
+    position: relative;
+}
+
+.body_page .register-container form .or span {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+    right: 0;
+    left: 0;
+    top: -14px;
+    background: white;
+    width: 70px;
+    margin: auto;
+}
+
+.body_page .register-container form button.login-button {
+    color: #fff;
+    border: 2px solid #323232;
+    width: 100% !important;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    background: #323232;
+}
+
+.body_page .register-container form button.login-button:hover {
+    color: #fff;
+    border-color: #bc8246;
+    background: #bc8246;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+/* google/facebook login */
+.other_login {
+    /* border: 1px solid #bc8246; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.other_login .login_google,
+.other_login .login_facebook {
+    width: 49%;
+}
+
+.other_login .login_google button,
+.other_login .login_facebook button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #fff;
+    font-size: 20px;
+    color: #fff;
+    transition: all .4s ease-in-out;
+}
+
+.other_login .login_google button {
+    background: #c0392b;
+}
+
+.other_login .login_facebook button {
+    background: #3B5998;
+}
+
+.other_login .login_google button:hover,
+.other_login .login_facebook button:hover {
+    background: #fff;
+    color: #bc8246;
+    border: 1px solid #bc8246;
+}
+
+/*modal*/
+.modal {
+
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: all .3s ease-out 0s;
+    visibility: hidden;
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    z-index: 6;
+    background-color: #fefefe;
+    margin: 1% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 2px 4px 15px 0px #505050;
+    transition: all .3s ease-out 0s;
+    opacity: 0;
+    transform: scale(.5);
+    visibility: hidden;
+}
+
+/* close button */
+.close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-size: 30px;
+}
+
+.close a {
+    text-decoration: none;
+    transition: .3s;
+    color: #000;
+}
+
+.close a:hover {
+    color: #bc8246;
+}
+
+/* responsive */
+@media screen and (max-width: 428px) {
+
+
+    .body_page-main {
+        margin: 70px auto;
+
+        width: 95%;
+    }
+
+    .body_page-main .login-container,
+    .register-container {
+        padding: 50px 30px;
+    }
+
+    .body_page-menu ul {
+        /* display: inline-block; */
+        width: 100%;
+    }
+
+    .body_page-main-address,
+    .body_page-main-form {
+        width: 100%;
+    }
+
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .sticky {
+        position: relative;
+    }
+}
+
+@media screen and (min-height: 670px) and (max-width: 428px) {
+    .modal-content {
+        margin: 20% auto;
+    }
+}

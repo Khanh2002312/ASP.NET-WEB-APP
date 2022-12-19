@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "ForgotPass";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Asset/css/lostpassword.css">
+
+<!--banner-->
+<div class="banner">
+    <h1>Tìm lại tài khoản</h1>
+</div>
+
+<!-- body page -->
+<div class="body_page">
+
+    <div class="body_page-menu">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Trang chủ
+                </a>
+            </li>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+            <li><a href="">Lấy lại mật khẩu</a></li>
+        </ul>
+    </div>
+    <!--        Lost Password Form-->
+    <div class="body_page-main">
+        <div class="lost-pass-container">
+            <div class="text-header">
+                <h3>Tìm Tài Khoản Của Bạn</h3>
+            </div>
+            <div class="message">
+                <p>Vui lòng nhập email để tìm kiếm tài khoản của bạn</p>
+            </div>
+            <form action="">
+
+                <input id="email" type="email" placeholder="Địa Chỉ Email...">
+
+
+                <button class="find-button ">TÌM KIẾM</button>
+
+                <button class="cancel-button">HỦY</button>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="~/Asset/js/login.js"></script>
+

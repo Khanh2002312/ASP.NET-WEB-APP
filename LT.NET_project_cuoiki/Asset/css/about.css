@@ -1,0 +1,230 @@
+.header_page{
+    background-color: #E4E4E4;
+    width: 100%;
+}
+.header_page-main{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #E4E4E4;
+}
+.sticky {
+    width: 100%;
+    background: #fff;
+}
+.body_page {
+    width: 100%;
+    overflow: auto;
+}
+
+.body_page-menu {
+    padding: 15px;
+    background: #b2bec3;
+}
+
+.body_page-menu ul {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.body_page-menu ul li {
+    margin-right: 10px;
+}
+
+.body_page-menu span {
+    margin-right: 10px;
+}
+
+.body_page-menu ul li:first-child:hover a {
+    color: #bc8247;
+}
+
+.body_page-menu ul li a {
+    color: #000;
+    transition: all 0.2s;
+}
+
+.body_page-menu ul li a i {
+    margin-right: 3px;
+    font-size: 14px;
+}
+
+
+.body_page-main {
+    width: 70%;
+    margin: 50px auto;
+
+
+}
+
+.body_page-main .welcome_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+/*left container*/
+.body_page-main .left_container {
+    flex-basis: 49%;
+    padding: 10px;
+}
+
+.body_page-main .left_container h1 {
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #242424;
+    font-size: 30px;
+    margin-bottom: 19px;
+}
+
+.body_page-main .left_container p {
+
+    color: #747474;
+    font-size: 15px;
+    line-height: 30px;
+    margin-bottom: 22px;
+}
+
+.body_page-main .left_container button {
+    background: none;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 10px 15px;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #bc8247;
+}
+
+.body_page-main .left_container button a {
+    color: #bc8247;
+}
+
+.body_page-main .left_container button:hover {
+    background: #bc8247;
+    transform: scale(0.9);
+}
+
+.body_page-main .left_container button:hover a {
+    color: #fff;
+}
+
+/*right_container*/
+.body_page-main .right_container {
+    flex-basis: 49%;
+    padding: 10px;
+}
+
+.body_page-main .right_container img {
+    border-radius: 10px;
+}
+
+/*counter*/
+.body_page-main .counter_container .counter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body_page-main .counter_container .counter .counter_item {
+    flex-basis: 24%;
+    background: #f3f3f3;
+    padding: 88px 0 80px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.body_page-main .counter_container .counter .counter_item .counter_info {}
+
+.body_page-main .counter_container .counter .counter_item .counter_img {
+    margin-right: 15px;
+}
+
+.body_page-main .counter_container .counter .counter_item .counter_info p {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #747474;
+    margin-bottom: 0;
+    line-height: 24px;
+}
+
+.body_page-main .counter_container .counter .counter_item .counter_info h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: #242424;
+    margin-bottom: 5px;
+    line-height: 33px;
+    margin-bottom: 0;
+}
+
+.body_page-main .counter_container .counter .counter_item img {
+    height: auto;
+}
+
+
+/* responsive */
+@media screen and (max-width: 428px) {
+
+
+    .body_page-main {
+        margin: 70px auto;
+
+        width: 95%;
+    }
+
+    .body_page-main .login-container,
+    .register-container {
+        padding: 50px 30px;
+    }
+
+    .body_page-menu ul {
+        /* display: inline-block; */
+        width: 100%;
+    }
+
+    .body_page-main-address,
+    .body_page-main-form {
+        width: 100%;
+    }
+
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+
+    .body_page-main .welcome_container {
+        display: block;
+    }
+
+    .body_page-main .counter_container .counter {
+        display: block;
+        padding: 10px;
+    }
+
+    .body_page-main .counter_container .counter .counter_item {
+        /* padding: 25px 0; */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+
+}
+
+@media screen and (min-height: 824px) and (max-width: 428px) {
+    .sticky {
+        position: relative;
+    }
+}
+
+@media screen and (min-height: 670px) and (max-width: 428px) {
+    .modal-content {
+        margin: 20% auto;
+    }
+}
