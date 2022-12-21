@@ -2,13 +2,23 @@
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>;
+    if (cartList == null)
+    {
+        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>();
+    }
+    else
+    {
+        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>)Session["cartItem"];
+    }
+
 }
 
 <link rel="stylesheet" href="~/Asset/css/cart.css">
 
 <!--banner-->
 <div class="banner">
-    <h1>Giỏ hàng</h1>
+    <h1>Giỏ hàng @cartList.Count</h1>
 </div>
 
 <!-- body page -->
@@ -47,106 +57,41 @@
             <tbody>
 
                 <!-- product -->
-                <tr>
-                    <th class="product-thumbnail">
-                        <a href="#">
-                            <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
-                        </a>
-                    </th>
-                    <th class="product-name">
-                        <a href="#">
-                            Vòng đeo tay bằng Ruby và Kim cương 18K
-                        </a>
-                    </th>
-                    <th class="product-price">
-                        <span>
-                            3.169.000 đ
-                        </span>
-                    </th>
-                    <th class="product-quantity">
-                        <div class="cart-plus-minus">
-                            <button class="dec qtybutton">-</button>
-                            <input type="text" value="1">
-                            <button class="inc qtybutton">+</button>
-                        </div>
-                    </th>
-                    <th class="product-total">
-                        <span>3.169.000 đ</span>
-                    </th>
-                    <th class="product-remove">
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </th>
-                </tr>
-                <!-- product -->
-                <tr>
-                    <th class="product-thumbnail">
-                        <a href="#">
-                            <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
-                        </a>
-                    </th>
-                    <th class="product-name">
-                        <a href="#">
-                            Nhẫn Ngọc lục bảo và Kim cương 14K
-                        </a>
-                    </th>
-                    <th class="product-price">
-                        <span>5.090.000 đ</span>
-                    </th>
-                    <th class="product-quantity">
-                        <div class="cart-plus-minus">
-                            <button class="dec qtybutton">-</button>
-                            <input type="text" value="1">
-                            <button class="inc qtybutton">+</button>
-                        </div>
-                    </th>
-                    <th class="product-total">
-                        <span>5.090.000 đ</span>
-                    </th>
-                    <th class="product-remove">
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </th>
-                </tr>
-
-                <!-- product -->
-                <tr>
-                    <th class="product-thumbnail">
-                        <a href="#">
-                            <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
-                        </a>
-                    </th>
-                    <th class="product-name">
-                        <a href="#">
-                            Vòng cổ Sapphire và Kim cương 18K
-                        </a>
-                    </th>
-                    <th class="product-price">
-                        <span>
-                            1.088.000 đ
-                        </span>
-                    </th>
-                    <th class="product-quantity">
-                        <div class="cart-plus-minus">
-                            <button class="dec qtybutton">-</button>
-                            <input type="text" value="2">
-                            <button class="inc qtybutton">+</button>
-                        </div>
-                    </th>
-                    <th class="product-total">
-                        <span>2.176.000 đ</span>
-                    </th>
-                    <th class="product-remove">
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </th>
-                </tr>
-
-
-
+                @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.ProductInCart> entry in cartList)
+                {
+                    <tr>
+                        <th class="product-thumbnail">
+                            <a href="#">
+                                <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
+                            </a>
+                        </th>
+                        <th class="product-name">
+                            <a href="#">
+                                @entry.Value.Product.Title
+                            </a>
+                        </th>
+                        <th class="product-price">
+                            <span>
+                                @entry.Value.Product.Price
+                            </span>
+                        </th>
+                        <th class="product-quantity">
+                            <div class="cart-plus-minus">
+                                <button class="dec qtybutton">-</button>
+                                <input type="text" value="@entry.Value.Quantity">
+                                <button class="inc qtybutton">+</button>
+                            </div>
+                        </th>
+                        <th class="product-total">
+                            <span> @entry.Value.Product.Price</span>
+                        </th>
+                        <th class="product-remove">
+                            <button>
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </th>
+                    </tr>
+                }
             </tbody>
 
         </table>

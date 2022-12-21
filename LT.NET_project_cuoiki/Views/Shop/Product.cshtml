@@ -2,7 +2,14 @@
 
 @{
     ViewBag.Title = "productControl";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_MainLayout.cshtml"; IDictionary<int, LT.NET_project_cuoiki.Models.ProductInCart> cartList = Session["cartItem"] as Dictionary<int, LT.NET_project_cuoiki.Models.ProductInCart>;
+    if (cartList == null)
+    {
+        cartList = new Dictionary<int, LT.NET_project_cuoiki.Models.ProductInCart>();
+    }
+    String url = HttpContext.Current.Request.Url.AbsoluteUri;
+
+    Session["inputId"] = HttpUtility.ParseQueryString(new Uri(url).Query).Get("inputId");
 
 }
 <link rel="stylesheet" href="~/Asset/css/main.css">
@@ -10,7 +17,7 @@
 <link rel="stylesheet" href="~/Asset/css/bootstrap.min.css">
 <!--banner-->
 <div class="banner">
-    <h1>Sản phẩm</h1>
+    <h1>Sản phẩm </h1>
 </div>
 <div class="body_page-menu">
     <ul>
@@ -291,7 +298,14 @@
                                             </div>
                                             <div class="card-btn">
                                                 <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
-                                                <button>Thêm vào giỏ</button>
+                                                @using (Html.BeginForm("AddToCart", "Shop/Product", FormMethod.Get))
+                                                {
+                                                    <input type="hidden" value="@item.Id"
+                                                           name="inputId" id="inputId">
+                                                    <button type="submit">Thêm vào giỏ</button>
+                                                }
+
+
                                             </div>
                                         </div>
                                     </div>

@@ -2,6 +2,7 @@
 using LT.NET_project_cuoiki.Entity;
 using LT.NET_project_cuoiki.Models;
 using System.Collections.Generic;
+
 using System.Web.Mvc;
 
 namespace LT.NET_project_cuoiki.Controllers
@@ -17,7 +18,7 @@ namespace LT.NET_project_cuoiki.Controllers
             ProductDAO productDAO = new ProductDAO();
             List<ProductEntity> productList = new List<ProductEntity>();
             productList = productDAO.getAllProduct();
-            //
+
             return View(productList);
         }
 
@@ -42,7 +43,11 @@ namespace LT.NET_project_cuoiki.Controllers
 
         public ActionResult Cart()
         {
+
+            AddToCart();
             return View();
+
+
         }
 
         public ActionResult About()
@@ -71,6 +76,38 @@ namespace LT.NET_project_cuoiki.Controllers
             return View();
         }
 
+        [HttpGet]
+        public void AddToCart()
+        {
+            string id = Session["inputId"] as string;
+
+            Dictionary<string, ProductInCart> cartMap = Session["cartItem"] as Dictionary<string, ProductInCart>;
+            ProductDAO productDAO = new ProductDAO();
+            ProductEntity product = productDAO.getProductById(id);
+            ProductInCart p;
+            if (cartMap == null)
+            {
+                cartMap = new Dictionary<string, ProductInCart>();
+                p = new ProductInCart(product, 1);
+                cartMap.Add(id, p);
+            }
+            else
+            {
+                if (cartMap.ContainsKey(id))
+                {
+                    p = cartMap[id];
+                    p.incrementQuantity();
+                }
+                else
+                {
+                    p = new ProductInCart(product, 1);
+                    cartMap.Add(id, p);
+                }
+            }
+            Session["test"] = id + 1;
+            Session["cartItem"] = cartMap;
+
+        }
         // POST: Shop/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
