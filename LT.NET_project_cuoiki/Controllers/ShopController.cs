@@ -81,8 +81,6 @@ namespace LT.NET_project_cuoiki.Controllers
         [HttpGet]
         public ActionResult AddToCart(int productId)
         {
-
-
             Dictionary<string, ProductInCart> cartmap = Session["cartitem"] as Dictionary<string, ProductInCart>;
             ProductDAO productdao = new ProductDAO();
             ProductEntity product = productdao.getProductById(productId.ToString());
@@ -113,6 +111,13 @@ namespace LT.NET_project_cuoiki.Controllers
             Session["cartItem"] = cartmap;
 
             return RedirectToAction("Product");
+        }
+        [HttpGet]
+        public ActionResult DeleteAllItem()
+        {
+            Session["cartItem"] = null;
+
+            return RedirectToAction("Cart");
         }
         // POST: Shop/Create
         [HttpPost]

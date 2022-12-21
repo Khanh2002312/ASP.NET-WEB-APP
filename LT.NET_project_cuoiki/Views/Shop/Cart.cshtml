@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
-    
+
 
 }
 
@@ -66,7 +66,7 @@
                             <th class="product-name">
                                 <a href="#">
                                     @entry.Value.Product.Title
-                                    
+
                                 </a>
                             </th>
                             <th class="product-price">
@@ -86,7 +86,7 @@
                             </th>
                             <th class="product-remove">
                                 <button>
-                                    <i class="fa-solid fa-xmark"></i>
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                             </th>
                         </tr>
@@ -99,57 +99,34 @@
         <div class="table table-non-responsive">
 
             <ul>
-                <li class="list_card">
-                    <div class="card_img">
-                        <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
-                    </div>
-                    <div class="card_infor">
-                        <a href="#" class="title">Vòng đeo tay bằng Ruby và Kim cương 18K</a><br>
-                        <span class="price">3.169.000 đ</span>
-                        <div class="product-quantity">
-                            <button>-</button>
-                            <input type="text" value="1">
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <div class="deleteProduct">
-                        <button class="deleteProductBtn"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                </li>
-                <li class="list_card">
-                    <div class="card_img">
-                        <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
-                    </div>
-                    <div class="card_infor">
-                        <a href="#" class="title">Nhẫn Ngọc lục bảo và Kim cương 14K</a><br>
-                        <span class="price">5.090.000 đ</span>
-                        <div class="product-quantity">
-                            <button>-</button>
-                            <input type="text" value="1">
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <div class="deleteProduct">
-                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                </li>
-                <li class="list_card">
-                    <div class="card_img">
-                        <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
-                    </div>
-                    <div class="card_infor">
-                        <a href="#" class="title">Vòng cổ Sapphire và Kim cương 18K</a><br>
-                        <span class="price">2.176.000 đ</span>
-                        <div class="product-quantity">
-                            <button>-</button>
-                            <input type="text" value="2">
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <div class="deleteProduct">
-                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                </li>
+                @if (Model.Count > 0)
+                {
+                    foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.ProductInCart> entry in Model)
+                    {
+                        string discount = entry.Value.Product.Discount.ToString();
+                        string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                        string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                        string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
+
+                        <li class="list_card">
+                            <div class="card_img">
+                                <img src="~/Asset/@entry.Value.Product.Thumbnail" alt="">
+                            </div>
+                            <div class="card_infor">
+                                <a href="#" class="title">@entry.Value.Product.Title</a><br>
+                                <span class="price">@totalForm</span>
+                                <div class="product-quantity">
+                                    <button>-</button>
+                                    <input type="text" value="@entry.Value.Quantity">
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            <div class="deleteProduct">
+                                <button class="deleteProductBtn"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </li>
+                    }
+                }
 
             </ul>
 
@@ -163,26 +140,39 @@
             <button>OK</button>
         </div>
         <div class="clearCart">
-            <button>Xóa tất cả</button>
+            <button><a href="/Shop/DeleteAllItem" class="deleteAll">Xóa tất cả</a></button>
         </div>
     </div>
-
+    @{
+        String totalString = "";
+        int totalInt = 0;
+    }
+    @if (Model.Count > 0)
+    {
+        foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.ProductInCart> entry in Model)
+        {
+            totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+            String totalS = totalInt.ToString();
+            totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
+        }
+    }
     <div class="body_page-footer">
         <div class="empty_page"></div>
         <div class="CartTotals">
             <h2>Tổng tiền</h2>
             <ul>
+
                 <li>
                     <span class="title">Tạm tính</span>
-                    <span class="price">10.435.000 đ</span>
+                    <span class="price">@totalString</span>
                 </li>
                 <li>
                     <span class="title">Giảm giá</span>
-                    <span class="price">10.000 đ</span>
+                    <span class="price">0 đ</span>
                 </li>
                 <li>
                     <span class="title">Tổng</span>
-                    <span class="price">10.425.000 đ</span>
+                    <span class="price">@totalString</span>
                 </li>
             </ul>
             <button class="totals_btns">
@@ -194,4 +184,3 @@
 
 
 </div>
-

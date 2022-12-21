@@ -83,7 +83,7 @@
                     <button type="button" class="search-btn">
                         <i class="fa-solid fa-magnifying-glass"></i>Tìm
                         kiếm
-                    </button>
+                    </button>   
                     <button>
                         @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Giỏ hàng(100)</a>*@
                         <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
@@ -104,7 +104,7 @@
                         <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         <button>
                             @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>*@
-                            <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng(100)", "Cart", "Shop")
+                            <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
                         </button>
                         <button>
                             @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i></a>*@
