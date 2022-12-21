@@ -104,7 +104,7 @@ namespace LT.NET_project_cuoiki.Controllers
                     cartMap.Add(id, p);
                 }
             }
-            Session["test"] = id + 1;
+           
             Session["cartItem"] = cartMap;
 
         }

@@ -1,6 +1,16 @@
 ﻿
 @{
     ViewBag.Title = "_MainLayout";
+    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>;
+    if (cartList == null)
+    {
+        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>();
+    }
+    else
+    {
+        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>)Session["cartItem"];
+    }
+
 }
 
 <!DOCTYPE html>
@@ -76,7 +86,7 @@
                     </button>
                     <button>
                         @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Giỏ hàng(100)</a>*@
-                        <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng(100)", "Cart", "Shop")
+                        <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
                     </button>
                     <button>
                     @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i>Tài khoản</a>*@
