@@ -43,11 +43,13 @@ namespace LT.NET_project_cuoiki.Controllers
 
         public ActionResult Cart()
         {
-
-            AddToCart();
-            return View();
-
-
+            var cart = Session["cartItem"];
+            var map = new Dictionary<string, ProductInCart>();
+            if (cart != null)
+            {
+                map = (Dictionary<string, ProductInCart>)cart;
+            }
+            return View(map);
         }
 
         public ActionResult About()
@@ -77,36 +79,40 @@ namespace LT.NET_project_cuoiki.Controllers
         }
 
         [HttpGet]
-        public void AddToCart()
+        public ActionResult AddToCart(int productId)
         {
-            string id = Session["inputId"] as string;
 
-            Dictionary<string, ProductInCart> cartMap = Session["cartItem"] as Dictionary<string, ProductInCart>;
-            ProductDAO productDAO = new ProductDAO();
-            ProductEntity product = productDAO.getProductById(id);
+
+            Dictionary<string, ProductInCart> cartmap = Session["cartitem"] as Dictionary<string, ProductInCart>;
+            ProductDAO productdao = new ProductDAO();
+            ProductEntity product = productdao.getProductById(productId.ToString());
             ProductInCart p;
-            if (cartMap == null)
+            if (cartmap == null)
             {
-                cartMap = new Dictionary<string, ProductInCart>();
+                cartmap = new Dictionary<string, ProductInCart>();
                 p = new ProductInCart(product, 1);
-                cartMap.Add(id, p);
+                cartmap.Add(productId.ToString(), p);
+                Session["cartItem"] = cartmap;
             }
             else
             {
-                if (cartMap.ContainsKey(id))
+                if (cartmap.ContainsKey(productId.ToString()))
                 {
-                    p = cartMap[id];
+                    p = cartmap[productId.ToString()];
                     p.incrementQuantity();
+                    Session["cartItem"] = cartmap;
                 }
                 else
                 {
                     p = new ProductInCart(product, 1);
-                    cartMap.Add(id, p);
+                    cartmap.Add(productId.ToString(), p);
+                    Session["cartItem"] = cartmap;
                 }
             }
-           
-            Session["cartItem"] = cartMap;
 
+            Session["cartItem"] = cartmap;
+
+            return RedirectToAction("Product");
         }
         // POST: Shop/Create
         [HttpPost]

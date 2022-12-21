@@ -298,21 +298,12 @@
                                             </div>
                                             <div class="card-btn">
                                                 <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
-                                                @using (Html.BeginForm("AddToCart", "Shop/Product", FormMethod.Get))
-                                                {
-                                                    <input type="hidden" value="@item.Id"
-                                                           name="inputId" id="inputId">
-                                                    <button type="submit">Thêm vào giỏ</button>
-                                                }
 
-
+                                                <button type="submit"><a href="/Shop/AddToCart?productId=@item.Id" class="addtocart">Thêm vào giỏ</a></button>
                                             </div>
                                         </div>
                                     </div>
                                 }
-
-
-
                             </div>
                         </div>
                         <div class="tab-content-item fade active show" id="pills-grid-2" role="tabpanel"

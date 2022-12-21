@@ -1,16 +1,8 @@
-﻿
+﻿@model Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
-    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>;
-    if (cartList == null)
-    {
-        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>();
-    }
-    else
-    {
-        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>)Session["cartItem"];
-    }
+    
 
 }
 
@@ -57,40 +49,48 @@
             <tbody>
 
                 <!-- product -->
-                @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.ProductInCart> entry in cartList)
+                @if (Model.Count > 0)
                 {
-                    <tr>
-                        <th class="product-thumbnail">
-                            <a href="#">
-                                <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
-                            </a>
-                        </th>
-                        <th class="product-name">
-                            <a href="#">
-                                @entry.Value.Product.Title
-                            </a>
-                        </th>
-                        <th class="product-price">
-                            <span>
-                                @entry.Value.Product.Price
-                            </span>
-                        </th>
-                        <th class="product-quantity">
-                            <div class="cart-plus-minus">
-                                <button class="dec qtybutton">-</button>
-                                <input type="text" value="@entry.Value.Quantity">
-                                <button class="inc qtybutton">+</button>
-                            </div>
-                        </th>
-                        <th class="product-total">
-                            <span> @entry.Value.Product.Price</span>
-                        </th>
-                        <th class="product-remove">
-                            <button>
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </th>
-                    </tr>
+                    foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.ProductInCart> entry in Model)
+                    {
+                        string discount = entry.Value.Product.Discount.ToString();
+                        string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                        string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                        string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
+                        <tr>
+                            <th class="product-thumbnail">
+                                <a href="#">
+                                    <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
+                                </a>
+                            </th>
+                            <th class="product-name">
+                                <a href="#">
+                                    @entry.Value.Product.Title
+                                    
+                                </a>
+                            </th>
+                            <th class="product-price">
+                                <span>
+                                    @discountForm
+                                </span>
+                            </th>
+                            <th class="product-quantity">
+                                <div class="cart-plus-minus">
+                                    <button class="dec qtybutton">-</button>
+                                    <input type="text" value="@entry.Value.Quantity">
+                                    <button class="inc qtybutton">+</button>
+                                </div>
+                            </th>
+                            <th class="product-total">
+                                <span> @totalForm</span>
+                            </th>
+                            <th class="product-remove">
+                                <button>
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </th>
+                        </tr>
+                    }
                 }
             </tbody>
 
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <div class="deleteProduct">
-                        <button class="deleteProductBtn"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="deleteProductBtn"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
                 <li class="list_card">
