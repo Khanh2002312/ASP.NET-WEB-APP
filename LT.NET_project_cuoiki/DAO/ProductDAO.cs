@@ -21,6 +21,7 @@ namespace LT.NET_project_cuoiki.dao
                 product.Title = r["title"].ToString();
                 product.Keyword = r["keyword"].ToString();
                 product.Price = Int32.Parse(r["price"].ToString());
+                
                 product.Discount = Int32.Parse(r["discount"].ToString());
                 product.Design = r["design"].ToString();
                 product.Thumbnail = r["thumbnail"].ToString();

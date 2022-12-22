@@ -277,8 +277,17 @@
                                 {
                                     string price = item.Price.ToString();
                                     string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
+
                                     string discount = item.Discount.ToString();
-                                    string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                    string discountForm;
+                                    if (discount.Length < 6)
+                                    {
+                                        discountForm = priceForm;
+                                    } else
+                                    {
+
+                                        discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                    }
 
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                         <div class="body_page-trending-product-list-card">
@@ -287,8 +296,12 @@
                                             </div>
                                             <div class="card-title-price">
                                                 <p>@Html.DisplayFor(modelItem => item.Title)</p>
+                                                @if (discount.Length >= 6)
+                                                {
                                                 <span> <strike style="color:gray"> @Html.Raw(priceForm) </strike></span>
-                                                <span>  @Html.Raw(discountForm)</span>
+
+                                                }
+                                                    <span>  @Html.Raw(discountForm)</span>
                                             </div>
                                             <div class="card-btn">
                                                 <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>

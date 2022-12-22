@@ -247,7 +247,15 @@
                             <tbody>
                                 @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
                                 {
-                                    string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                                    string total;
+                                    if (entry.Value.Product.Discount != 0)
+                                    {
+
+                                        total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                                    } else
+                                    {
+                                        total = (entry.Value.Product.Price * entry.Value.Quantity).ToString();
+                                    }
                                     string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
                                     <tr>
                                         <td>
@@ -270,7 +278,14 @@
 
                             @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
                             {
-                                totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+                                if(entry.Value.Product.Discount != 0)
+                                {
+                                    totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+
+                                } else
+                                {
+                                    totalInt += (entry.Value.Product.Price * entry.Value.Quantity);
+                                }
                                 String totalS = totalInt.ToString();
                                 totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
                             }

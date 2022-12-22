@@ -53,9 +53,19 @@
                 {
                     foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in Model)
                     {
-                        string discount = entry.Value.Product.Discount.ToString();
+                        string discount, total;
+                        if (entry.Value.Product.Discount != 0)
+                        {
+                            discount = entry.Value.Product.Discount.ToString();
+                            total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+
+                        } else
+                        {
+                            discount = entry.Value.Product.Price.ToString();
+                            total = (entry.Value.Product.Price * entry.Value.Quantity).ToString();
+                        }
+
                         string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
-                        string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
                         string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
                         <tr>
                             <th class="product-thumbnail">
@@ -105,9 +115,21 @@
                 {
                     foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in Model)
                     {
-                        string discount = entry.Value.Product.Discount.ToString();
+                        string discount, total;
+                        if (entry.Value.Product.Discount != 0)
+                        {
+                            discount = entry.Value.Product.Discount.ToString();
+                            total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+
+                        }
+                        else
+                        {
+                            discount = entry.Value.Product.Price.ToString();
+                            total = (entry.Value.Product.Price * entry.Value.Quantity).ToString();
+                        }
+                        
                         string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
-                        string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                        
                         string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
 
                         <li class="list_card">
@@ -157,7 +179,14 @@
     {
         foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in Model)
         {
-            totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+            if(entry.Value.Product.Discount != 0)
+            {
+                totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+
+            } else
+            {
+                totalInt += (entry.Value.Product.Price * entry.Value.Quantity);
+            }
             String totalS = totalInt.ToString();
             totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
         }
