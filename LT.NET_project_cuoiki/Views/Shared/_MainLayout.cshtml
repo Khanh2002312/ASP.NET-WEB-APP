@@ -1,14 +1,14 @@
 ﻿
 @{
     ViewBag.Title = "_MainLayout";
-    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>;
+    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>;
     if (cartList == null)
     {
-        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>();
+        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>();
     }
     else
     {
-        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>)Session["cartItem"];
+        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>)Session["cartItem"];
     }
 
 }

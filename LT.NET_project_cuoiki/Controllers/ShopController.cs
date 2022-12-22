@@ -44,10 +44,10 @@ namespace LT.NET_project_cuoiki.Controllers
         public ActionResult Cart()
         {
             var cart = Session["cartItem"];
-            var map = new Dictionary<string, ProductInCart>();
+            var map = new Dictionary<string, CartItem>();
             if (cart != null)
             {
-                map = (Dictionary<string, ProductInCart>)cart;
+                map = (Dictionary<string, CartItem>)cart;
             }
             return View(map);
         }
@@ -81,14 +81,14 @@ namespace LT.NET_project_cuoiki.Controllers
         [HttpGet]
         public ActionResult AddToCart(int productId)
         {
-            Dictionary<string, ProductInCart> cartmap = Session["cartitem"] as Dictionary<string, ProductInCart>;
+            Dictionary<string, CartItem> cartmap = Session["cartitem"] as Dictionary<string, CartItem>;
             ProductDAO productdao = new ProductDAO();
             ProductEntity product = productdao.getProductById(productId.ToString());
-            ProductInCart p;
+            CartItem p;
             if (cartmap == null)
             {
-                cartmap = new Dictionary<string, ProductInCart>();
-                p = new ProductInCart(product, 1);
+                cartmap = new Dictionary<string, CartItem>();
+                p = new CartItem(product, 1);
                 cartmap.Add(productId.ToString(), p);
                 Session["cartItem"] = cartmap;
             }
@@ -102,7 +102,7 @@ namespace LT.NET_project_cuoiki.Controllers
                 }
                 else
                 {
-                    p = new ProductInCart(product, 1);
+                    p = new CartItem(product, 1);
                     cartmap.Add(productId.ToString(), p);
                     Session["cartItem"] = cartmap;
                 }
@@ -116,6 +116,15 @@ namespace LT.NET_project_cuoiki.Controllers
         public ActionResult DeleteAllItem()
         {
             Session["cartItem"] = null;
+
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult DeleteItem(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            cartMap.Remove(productId);
+            Session["cartItem"] = cartMap;
 
             return RedirectToAction("Cart");
         }

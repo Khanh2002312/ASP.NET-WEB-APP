@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Dictionary<string, LT.NET_project_cuoiki.Models.CartItem> cartMap = (Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>)Session["cartItem"];
+    if (cartMap == null)
+    {
+        cartMap = new Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>();
+    }
+
 }
 
 <link rel="stylesheet" href="~/Asset/css/checkout.css">
@@ -239,17 +245,46 @@
                                     <th>Tổng</th>
                                 </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                                @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
+                                {
+                                    string total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                                    string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
+                                    <tr>
+                                        <td>
+
+                                            @entry.Value.Product.Title
+                                            x <strong>
+                                                @entry.Value.Quantity
+                                            </strong>
+                                        </td>
+                                        <td>
+                                            @totalForm
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            @{
+                                String totalString = "";
+                                int totalInt = 0;
+                            }
+
+                            @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
+                            {
+                                totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
+                                String totalS = totalInt.ToString();
+                                totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
+                            }
                             <tfoot>
                                 <tr class="cartSubtotal">
                                     <th>Tổng Giỏ Hàng</th>
-                                    <td><span class="amount">0₫</span></td>
+                                    <td><span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span></td>
                                 </tr>
                                 <tr class="order-total">
                                     <th style="border-bottom: none;">Tổng Đơn Hàng</th>
                                     <td style="border-bottom: none;">
                                         <strong>
-                                            <span class="amount">0₫</span>
+                                            <span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span>
                                         </strong>
                                     </td>
                                 </tr>
