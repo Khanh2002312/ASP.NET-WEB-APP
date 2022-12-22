@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 namespace LT.NET_project_cuoiki.DAO
 {
@@ -106,16 +104,16 @@ namespace LT.NET_project_cuoiki.DAO
             {
                 if (typeGem.Equals(dr["name"]))
                 {
-                        if (Int32.Parse(dr["parent_id"].ToString()) == GetIdParent(category))
-                        {
-                            id_cat = Int32.Parse(dr["id"].ToString());
-                        }
+                    if (Int32.Parse(dr["parent_id"].ToString()) == GetIdParent(category))
+                    {
+                        id_cat = Int32.Parse(dr["id"].ToString());
+                    }
                 }
             }
             return id_cat;
         }
 
-       
+
 
         public static string GetTypeGem(int category_id)
         {

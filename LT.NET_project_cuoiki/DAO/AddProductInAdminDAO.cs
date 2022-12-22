@@ -1,11 +1,4 @@
-﻿using LT.NET_project_cuoiki.dao;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI.WebControls;
+﻿using MySql.Data.MySqlClient;
 
 namespace LT.NET_project_cuoiki.DAO
 {
@@ -18,8 +11,8 @@ namespace LT.NET_project_cuoiki.DAO
             string query_insert_color = "INSERT INTO product_gem_color() VALUES(@id_product, @id_color)";
 
             string query_insert_product = "INSERT INTO product(product.id, product.title, product.category_id, product.quantity, " +
-                "product.price, product.keyword, product.design, product.thumbnail, product.description)" +
-                "VALUES (@id_product, @title, @category_id, @quantity, @price, @keyword, @design, @thumbnail, @description)";
+                "product.price, product.discount, product.keyword, product.design, product.thumbnail, product.description)" +
+                "VALUES (@id_product, @title, @category_id, @quantity, @price, @discount, @keyword, @design, @thumbnail, @description)";
 
             MySqlConnection mySqlConnection = new ConnectionMysql().OpenConnection();
 
@@ -39,7 +32,7 @@ namespace LT.NET_project_cuoiki.DAO
             command_product.Parameters.AddWithValue("@description", mota);
 
             command_product.Parameters.AddWithValue("@discount", 0);
-            command_product.Parameters.AddWithValue("@is_on_sale", 0);
+            command_product.Parameters.AddWithValue("@is_on_sale", 1);
             command_product.Parameters.AddWithValue("@created_at", "now()");
             command_product.Parameters.AddWithValue("@updated_at", "now()");
             command_product.Parameters.AddWithValue("@created_by", 1);
