@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\LT.NET_project_cuoiki",
+    "\\LT.NET_project_cuoiki\\Asset",
+    "\\LT.NET_project_cuoiki\\Asset\\css",
+    "\\LT.NET_project_cuoiki\\Controllers",
+    "\\LT.NET_project_cuoiki\\Models",
+    "\\LT.NET_project_cuoiki\\Views",
+    "\\LT.NET_project_cuoiki\\Views\\Home",
+    "\\LT.NET_project_cuoiki\\Views\\Shared",
+    "\\LT.NET_project_cuoiki\\Views\\Shop"
+  ],
+  "SelectedNode": "\\LT.NET_project_cuoiki\\ConnectionMysql.cs",
+  "PreviewInSolutionExplorer": false
+}
