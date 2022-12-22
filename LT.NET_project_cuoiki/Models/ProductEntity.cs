@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LT.NET_project_cuoiki.Entity
+namespace LT.NET_project_cuoiki.Models
 {
     public class ProductEntity
     {
@@ -17,6 +17,10 @@ namespace LT.NET_project_cuoiki.Entity
         string description;
         int quantity;
         int is_on_sale;
+        string status;
+        string color;
+        string img_link;
+        string typeGem;
 
         public int Id { get => id; set => id = value; }
         public string Category { get => category; set => category = value; }
@@ -29,6 +33,10 @@ namespace LT.NET_project_cuoiki.Entity
         public string Description { get => description; set => description = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public int Is_on_sale { get => is_on_sale; set => is_on_sale = value; }
+        public string Status { get => status; set => status = value; }
+        public string Color { get => color; set => color = value; }
+        public string Img_link { get => img_link; set => img_link = value; }
+        public string TypeGem { get => typeGem; set => typeGem = value; }
 
         public ProductEntity(int id, string category, string title, string keyword, int price, int discount, string design, string thumbnail, string description, int quantity, int is_on_sale)
         {
@@ -61,6 +69,30 @@ namespace LT.NET_project_cuoiki.Entity
         {
         }
 
+        public ProductEntity(int id, string title, string thumbnail, int quantity, string status, int price, string category)
+        {
+            this.id = id;
+            this.category = category;
+            this.title = title;
+            this.price = price;
+            this.thumbnail = thumbnail;
+            this.quantity = quantity;
+            this.status = status;
+        }
 
+        public ProductEntity(int id, string category, string title, string keyword, int price, string design, string description, int quantity, string color, string img_link, string typeGem)
+        {
+            this.id = id;
+            this.category = category;
+            this.title = title;
+            this.keyword = keyword;
+            this.price = price;
+            this.design = design;
+            this.description = description;
+            this.quantity = quantity;
+            this.color = color;
+            this.img_link = img_link;
+            this.typeGem = typeGem;
+        }
     }
 }

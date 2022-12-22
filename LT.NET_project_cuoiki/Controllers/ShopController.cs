@@ -1,5 +1,4 @@
 ﻿using LT.NET_project_cuoiki.dao;
-using LT.NET_project_cuoiki.Entity;
 using LT.NET_project_cuoiki.Models;
 using System.Collections.Generic;
 using System.Web;

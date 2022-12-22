@@ -1,4 +1,4 @@
-﻿using LT.NET_project_cuoiki.Entity;
+﻿using LT.NET_project_cuoiki.Models;
 
 namespace LT.NET_project_cuoiki.Models
 {
