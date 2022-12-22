@@ -76,9 +76,9 @@
                             </th>
                             <th class="product-quantity">
                                 <div class="cart-plus-minus">
-                                    <button class="dec qtybutton">-</button>
-                                    <input type="text" value="@entry.Value.Quantity">
-                                    <button class="inc qtybutton">+</button>
+                                    <button class="dec qtybutton" id="dec" onclick="quantityButton(this.id)"><a href="/Shop/DecrementQuantity?productId=@entry.Key">-</a></button>
+                                    <input type="text" value="@entry.Value.Quantity" id="quantity">
+                                    <button class="inc qtybutton" id="inc" onclick="quantityButton(this.id)"><a href="/Shop/IncrementQuantity?productId=@entry.Key">+</a></button>
                                 </div>
                             </th>
                             <th class="product-total">
@@ -118,9 +118,9 @@
                                 <a href="#" class="title">@entry.Value.Product.Title</a><br>
                                 <span class="price">@totalForm</span>
                                 <div class="product-quantity">
-                                    <button>-</button>
-                                    <input type="text" value="@entry.Value.Quantity">
-                                    <button>+</button>
+                                    <button id="dec" onclick="quantityButton(this.id)"><a href="/Shop/DecrementQuantity?productId=@entry.Key">-</a></button>
+                                    <input type="text" value="@entry.Value.Quantity" id="quantity">
+                                    <button id="inc" onclick="quantityButton(this.id)"><a href="/Shop/IncrementQuantity?productId=@entry.Key">+</a></button>
                                 </div>
                             </div>
                             <div class="deleteProduct">
@@ -190,3 +190,4 @@
 
 
 </div>
+<script src="~/Asset/js/cart.js"></script>

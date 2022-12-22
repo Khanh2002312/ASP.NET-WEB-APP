@@ -63,7 +63,8 @@
                             <label for="save">Nhớ Mật Khẩu!</label>
                         </div>
                         <div class="lost-pass">
-                            <a href="">Quên Mật Khẩu?</a>
+                            @Html.ActionLink("Quên Mật Khẩu?", "ForgotPass", "Shop")
+                            @*<a href="">Quên Mật Khẩu?</a>*@
                         </div>
 
                     </div>
@@ -98,15 +99,13 @@
 
                 <div class="checkout-area">
                     <h3>Chi Tiết Thanh Toán</h3>
-
+                    <form id="information" runat="servet"></form>
                     <div class="item-1">
                         <div class="input-text">
                             <label for="lastName">Họ Và Tên<span style="color: red">*</span></label>
                             <input type="text" id="lastName" placeholder="Họ Và Tên">
                         </div>
                     </div>
-
-
                     <div class="item-1">
                         <div class="input-text">
                             <label for="streetAddress">

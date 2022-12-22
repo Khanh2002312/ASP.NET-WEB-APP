@@ -2,7 +2,7 @@
 using LT.NET_project_cuoiki.Entity;
 using LT.NET_project_cuoiki.Models;
 using System.Collections.Generic;
-
+using System.Web;
 using System.Web.Mvc;
 
 namespace LT.NET_project_cuoiki.Controllers
@@ -14,6 +14,7 @@ namespace LT.NET_project_cuoiki.Controllers
         // GET: Shop
         public ActionResult Product()
         {
+
             //load product
             ProductDAO productDAO = new ProductDAO();
             List<ProductEntity> productList = new List<ProductEntity>();
@@ -77,9 +78,7 @@ namespace LT.NET_project_cuoiki.Controllers
         {
             return View();
         }
-
-        [HttpGet]
-        public ActionResult AddToCart(int productId)
+        public void AddToCartMethod(int productId, int quantity)
         {
             Dictionary<string, CartItem> cartmap = Session["cartitem"] as Dictionary<string, CartItem>;
             ProductDAO productdao = new ProductDAO();
@@ -88,7 +87,7 @@ namespace LT.NET_project_cuoiki.Controllers
             if (cartmap == null)
             {
                 cartmap = new Dictionary<string, CartItem>();
-                p = new CartItem(product, 1);
+                p = new CartItem(product, quantity);
                 cartmap.Add(productId.ToString(), p);
                 Session["cartItem"] = cartmap;
             }
@@ -102,15 +101,26 @@ namespace LT.NET_project_cuoiki.Controllers
                 }
                 else
                 {
-                    p = new CartItem(product, 1);
+                    p = new CartItem(product, quantity);
                     cartmap.Add(productId.ToString(), p);
                     Session["cartItem"] = cartmap;
                 }
             }
 
             Session["cartItem"] = cartmap;
+        }
+        [HttpGet]
+        public ActionResult AddToCart(int productId)
+        {
 
+            AddToCartMethod(productId, 1);
             return RedirectToAction("Product");
+        }
+        [HttpGet]
+        public ActionResult AddToCartDetail(int productId,int quantity)
+        {
+            AddToCartMethod(productId, 1);
+            return RedirectToAction("Details");
         }
         [HttpGet]
         public ActionResult DeleteAllItem()
@@ -128,6 +138,27 @@ namespace LT.NET_project_cuoiki.Controllers
 
             return RedirectToAction("Cart");
         }
+        [HttpGet]
+        public ActionResult IncrementQuantity(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            int num = cartMap[productId].Quantity;
+            num++;
+            cartMap[productId].Quantity = num;
+            Session["cartItem"] = cartMap;
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult DecrementQuantity(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            int num = cartMap[productId].Quantity;
+            num--;
+            cartMap[productId].Quantity = num;
+            Session["cartItem"] = cartMap;
+            return RedirectToAction("Cart");
+        }
+
         // POST: Shop/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
