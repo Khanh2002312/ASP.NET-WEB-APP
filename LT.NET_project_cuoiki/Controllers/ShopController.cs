@@ -1,7 +1,6 @@
 ﻿using LT.NET_project_cuoiki.dao;
 using LT.NET_project_cuoiki.Models;
 using System.Collections.Generic;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LT.NET_project_cuoiki.Controllers
@@ -77,6 +76,7 @@ namespace LT.NET_project_cuoiki.Controllers
         {
             return View();
         }
+
         public void AddToCartMethod(int productId, int quantity)
         {
             Dictionary<string, CartItem> cartmap = Session["cartitem"] as Dictionary<string, CartItem>;
@@ -116,10 +116,10 @@ namespace LT.NET_project_cuoiki.Controllers
             return RedirectToAction("Product");
         }
         [HttpGet]
-        public ActionResult AddToCartDetail(int productId,int quantity)
+        public ActionResult AddToCartDetail(int productId, int quantity)
         {
             AddToCartMethod(productId, 1);
-            return RedirectToAction("Details");
+            return RedirectToAction("Details/" + productId);
         }
         [HttpGet]
         public ActionResult DeleteAllItem()
@@ -157,7 +157,12 @@ namespace LT.NET_project_cuoiki.Controllers
             Session["cartItem"] = cartMap;
             return RedirectToAction("Cart");
         }
-
+        [HttpGet]
+        public ActionResult buyNow(int id)
+        {
+            AddToCartMethod(id, 1);
+            return RedirectToAction("Checkout");
+        }
         // POST: Shop/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)

@@ -125,15 +125,17 @@
                     }
                     <div class="btn-groups">
                         <button type="button" class="add_cart_btn">
-                            <a href="/Shop/AddToCart?productId=@Model.Product.Id" class="addtocart">
+                            <a href="/Shop/AddToCartDetail?productId=@Model.Product.Id&quantity=1" class="addtocart">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 thêm vào giỏ hàng
                             </a>
                            
                         </button>
                         <button type="button" class="buy_now_btn">
-                            <i class="fa-solid fa-wallet"></i>
-                            mua ngay
+                            <a href="/Shop/buyNow?id=@Model.Product.Id" class="buynow">
+                                <i class="fa-solid fa-wallet"></i>
+                                mua ngay
+                            </a>
                         </button>
                     </div>
                 </div>

@@ -192,57 +192,41 @@
                         <div class="sidebar_widget-content">
                             <div class="featured_products">
                                 <ul>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Vòng đeo tay bằng Ruby và Kim cương 18K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>3.169.000 đ</span>
+                                    @foreach (var item in Model.Take(3))
+                                    {
+                                        string price = item.Price.ToString();
+                                        string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
+
+                                        string discount = item.Discount.ToString();
+                                        string discountForm;
+                                        if (discount.Length < 6)
+                                        {
+                                            discountForm = priceForm;
+                                        }
+                                        else
+                                        {
+
+                                            discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                        }
+                                        <li>
+                                            <div class="featured_products-wrapper">
+                                                <div class="featured_products-thumb">
+                                                    <a href="@Url.Action("Details", new { id = item.Id })">
+                                                        <img src="~/Asset/@item.Thumbnail" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="featured_products-content">
+                                                    <h5>
+                                                        <a href="@Url.Action("Details", new { id = item.Id })">@item.Title</a>
+                                                    </h5>
+                                                    <div class="price">
+                                                        <span>@discountForm</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Nhẫn Ngọc lục bảo và Kim cương 14K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>5.090.000 đ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Vòng cổ Sapphire và Kim cương 18K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>1.088.000 đ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    }
+
                                 </ul>
                             </div>
                         </div>

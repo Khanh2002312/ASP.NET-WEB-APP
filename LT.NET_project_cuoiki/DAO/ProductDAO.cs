@@ -32,6 +32,7 @@ namespace LT.NET_project_cuoiki.dao
             }
             return products;
         }
+        
         public ProductEntity getProductById(string id)
         {
             ProductEntity product = new ProductEntity();
