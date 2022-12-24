@@ -15,6 +15,14 @@ namespace LT.NET_project_cuoiki.Controllers
 
             return View(productList);
         }
+     //  public ActionResult Search()
+     //    {
+     //       ProductDAO productDAO = new ProductDAO();
+     //       List<ProductEntity> productSearch = new List<ProductEntity>();
+      //      productSearch = productDAO.getProductByKey();
+      //      return View(productSearch);
+      //  }
+        
         public void AddToCartMethod(int productId, int quantity)
         {
             Dictionary<string, CartItem> cartmap = Session["cartitem"] as Dictionary<string, CartItem>;

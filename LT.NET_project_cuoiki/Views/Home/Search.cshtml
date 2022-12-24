@@ -1,0 +1,51 @@
+﻿@@using LT.NET_project_cuoiki.Models
+@model List<LT.NET_project_cuoiki.Models.ProductEntity>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string key = Request.QueryString["key"];
+
+    List<LT.NET_project_cuoiki.Models.ProductEntity> result = new List<LT.NET_project_cuoiki.Models.ProductEntity>();
+
+}
+
+<h2>Search @key </h2>
+
+@{
+    if (string.IsNullOrEmpty(key))
+    {
+        <h3>Dui lòng nhập từ khóa</h3>
+    }
+    else
+    {
+        if (key == "" || key.Length < 3)
+        {
+            <h3>Dui lòng nhập từ khóa</h3>
+        }
+        else
+        {
+            result = new LT.NET_project_cuoiki.dao.ProductDAO().getProductByKey(string key);
+            foreach (var item in result)
+            {
+
+                @foreach(var ListSearch)
+                <div class="body_page-trending-product-list-card">
+                    <div class="card-image">
+                        <a href="@Url.Action("../Shop/Details", new { id = item.Id })">
+                            <img src="~/Asset/@item.Thumbnail"
+                                 alt="Ảnh sản phẩm">
+                        </a>
+                    </div>
+                    <div class="card-title-price">
+                        <p>@item.Title</p>
+                    </div>
+                    <div class="card-btn">
+                        <button><a href="@Url.Action("../Shop/Details", new { id = item.Id })">Chi tiết</a></button>
+                        <button><a href="/Home/AddToCart?productId=@item.Id" class="addtocart">Thêm vào giỏ</a></button>
+                    </div>
+                </div>
+            }
+        }
+    }
+}

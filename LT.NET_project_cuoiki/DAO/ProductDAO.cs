@@ -32,7 +32,33 @@ namespace LT.NET_project_cuoiki.dao
             }
             return products;
         }
+
         
+         public List<ProductEntity> getProductByKey()
+        {
+            List<ProductEntity> products = new List<ProductEntity>();
+
+            ConnectionMysql c = new ConnectionMysql();
+            var d = c.SQL_query_to_DataTable("SELECT * FROM product where Title like '%" + key + "%' ");
+            foreach (DataRow r in d.Rows)
+            {
+                ProductEntity product = new ProductEntity();
+                product.Id = Int32.Parse(r["id"].ToString());
+                product.Category = r["category_id"].ToString();
+                product.Title = r["title"].ToString();
+                product.Keyword = r["keyword"].ToString();
+                product.Price = Int32.Parse(r["price"].ToString());
+
+                product.Discount = Int32.Parse(r["discount"].ToString());
+                product.Design = r["design"].ToString();
+                product.Thumbnail = r["thumbnail"].ToString();
+                product.Description = r["description"].ToString();
+                product.Quantity = Int32.Parse(r["quantity"].ToString());
+                product.Is_on_sale = Int32.Parse(r["is_on_sale"].ToString());
+                products.Add(product);
+            }
+            return products;
+        }
         public ProductEntity getProductById(string id)
         {
             ProductEntity product = new ProductEntity();
