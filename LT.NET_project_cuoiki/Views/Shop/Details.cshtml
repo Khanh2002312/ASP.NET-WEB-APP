@@ -298,7 +298,7 @@
                         </div>
                         <div class="card-btn">
                             <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
-                            <button>Thêm vào giỏ</button>
+                            <button><a href="/Shop/AddToCartDetail?productId=@Model.Product.Id&quantity=1" class="addtocart">Thêm vào giỏ</a></button>
                         </div>
                     </div>
                 </li>
