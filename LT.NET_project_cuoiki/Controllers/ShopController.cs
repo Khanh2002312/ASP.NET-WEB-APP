@@ -251,29 +251,36 @@ namespace LT.NET_project_cuoiki.Controllers
         public ActionResult CheckoutControl(string name, string hnum, string ward, string county, string province, string mail, string phone, string note)
         {
 
-            CheckoutDAO checkoutDAO = new CheckoutDAO();
-            Dictionary<string, CartItem> map = Session["cartItem"] as Dictionary<string, CartItem>;
-            if (map != null)
+            if (name == "" || hnum == "" || ward == "" || county == "" || province == "" || phone == "")
             {
-                if (Session["user"] == null)
-                {
-                    checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, null);
-                }
-                else
-                {
-                    UserModel userModel = (UserModel)Session["user"];
-
-                    checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, userModel.Id.ToString());
-                }
+                return RedirectToAction("Checkout");
             }
             else
             {
-                return RedirectToAction("Product");
-            }
-            Session["cartItem"] = null;
+                CheckoutDAO checkoutDAO = new CheckoutDAO();
+                Dictionary<string, CartItem> map = Session["cartItem"] as Dictionary<string, CartItem>;
+                if (map != null)
+                {
+                    if (Session["user"] == null)
+                    {
+                        checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, null);
+                    }
+                    else
+                    {
+                        UserModel userModel = (UserModel)Session["user"];
 
-            return Content("<a href=\"/Shop/Product\" style=\"margin:auto\">GO BACK</a>" +
-                "<script language='javascript' type='text/javascript'>alert('Đặt hàng thành công!');</script>");
+                        checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, userModel.Id.ToString());
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Product");
+                }
+                Session["cartItem"] = null;
+
+                return Content("<a href=\"/Shop/Product\" style=\"margin:auto\">GO BACK</a>" +
+                    "<script language='javascript' type='text/javascript'>alert('Đặt hàng thành công!');</script>");
+            }
 
         }
         // POST: Shop/Create
