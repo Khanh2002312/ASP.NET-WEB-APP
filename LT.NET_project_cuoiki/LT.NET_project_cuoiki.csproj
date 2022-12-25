@@ -52,12 +52,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -127,15 +136,20 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="DAO\CheckoutDAO.cs" />
+    <Compile Include="DAO\ProductAdminDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Models\AddProductForAdminModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CheckoutModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductInCart.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -630,6 +644,26 @@
     <Content Include="Asset\css\main.css" />
     <Content Include="Asset\css\product.css" />
     <Content Include="Asset\css\productdetails.css" />
+    <Content Include="Asset\js\bootstrap.bundle.js" />
+    <Content Include="Asset\js\bootstrap.bundle.min.js" />
+    <Content Include="Asset\js\bootstrap.js" />
+    <Content Include="Asset\js\bootstrap.min.js" />
+    <Content Include="Asset\js\checkout.js" />
+    <Content Include="Asset\js\home.js" />
+    <Content Include="Asset\js\jquery-3.6.1.min.js" />
+    <Content Include="Asset\js\lightslider.js" />
+    <Content Include="Asset\js\login.js" />
+    <Content Include="Asset\js\main.js" />
+    <Content Include="Asset\js\product.js" />
+    <Content Include="Asset\js\productdetail.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Asset\img\about_page\about_pic.jpg" />
     <Content Include="Asset\img\about_page\count.png" />
     <Content Include="Asset\img\about_page\count2.png" />
@@ -776,26 +810,6 @@
     <Content Include="Asset\img\sub_products\s3.jpg" />
     <Content Include="Asset\img\sub_products\s4.jpg" />
     <Content Include="Asset\img\sub_products\s5.jpg" />
-    <Content Include="Asset\js\bootstrap.bundle.js" />
-    <Content Include="Asset\js\bootstrap.bundle.min.js" />
-    <Content Include="Asset\js\bootstrap.js" />
-    <Content Include="Asset\js\bootstrap.min.js" />
-    <Content Include="Asset\js\checkout.js" />
-    <Content Include="Asset\js\home.js" />
-    <Content Include="Asset\js\jquery-3.6.1.min.js" />
-    <Content Include="Asset\js\lightslider.js" />
-    <Content Include="Asset\js\login.js" />
-    <Content Include="Asset\js\main.js" />
-    <Content Include="Asset\js\product.js" />
-    <Content Include="Asset\js\productdetail.js" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Asset\css\bootstrap-grid.css.map" />
@@ -906,6 +920,8 @@
     <Content Include="Views\Admin\tableDataBanned.cshtml" />
     <Content Include="Views\Admin\tableDataMoney.cshtml" />
     <Content Include="Views\Admin\tableDataManager.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\img-sanpham\TSTheoMenh\" />

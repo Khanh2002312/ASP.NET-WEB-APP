@@ -158,6 +158,7 @@ Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\obj\De
 Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CopyComplete
 Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.dll
 Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.pdb
+<<<<<<< HEAD
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll.config
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.pdb
@@ -238,3 +239,171 @@ E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CopyComplete
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.dll
 E:\.Student\Nam3_HK1\.Net\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.pdb
+=======
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll.config
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.pdb
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.exe
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.exe.config
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.rsp
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.exe
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.exe.config
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.rsp
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.AppContext.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Console.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.Compression.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Net.Http.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Net.Sockets.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.ValueTuple.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.exe
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.exe.config
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.rsp
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\VBCSCompiler.exe
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Antlr3.Runtime.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\MySql.Data.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Newtonsoft.Json.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Helpers.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Mvc.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Optimization.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Razor.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Razor.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\WebGrease.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Helpers.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Mvc.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Optimization.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Razor.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Razor.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Newtonsoft.Json.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Antlr3.Runtime.pdb
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.AssemblyReference.cache
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CoreCompileInputs.cache
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CopyComplete
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.dll
+C:\Users\ngomi\OneDrive\Máy tính\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.pdb
+>>>>>>> b47f2bcf026287075bdb3830dd7706eace8c4939
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.pdb
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.AssemblyReference.cache
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CoreCompileInputs.cache
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll.config
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\LT.NET_project_cuoiki.pdb
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.exe
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.exe.config
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csc.rsp
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.exe
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.exe.config
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\csi.rsp
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Managed.Core.targets
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.AppContext.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Collections.Immutable.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Console.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Globalization.Calendars.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.Compression.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.FileSystem.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Net.Http.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Net.Sockets.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Reflection.Metadata.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.ValueTuple.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XmlDocument.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XPath.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.exe
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.exe.config
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\vbc.rsp
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\VBCSCompiler.exe
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\roslyn\VBCSCompiler.exe.config
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Antlr3.Runtime.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.Web.Infrastructure.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\MySql.Data.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Newtonsoft.Json.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Net.Http.Formatting.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Helpers.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Http.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Http.WebHost.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Mvc.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Optimization.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Razor.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Deployment.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Razor.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\WebGrease.dll
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Net.Http.Formatting.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Http.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Http.WebHost.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Helpers.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Mvc.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Optimization.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.Razor.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Deployment.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\System.Web.WebPages.Razor.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Newtonsoft.Json.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Antlr3.Runtime.pdb
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CopyComplete

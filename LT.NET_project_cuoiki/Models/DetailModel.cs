@@ -1,4 +1,4 @@
-﻿using LT.NET_project_cuoiki.Entity;
+﻿using LT.NET_project_cuoiki.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -47,7 +47,7 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
         <div class="app-sidebar__user">
-            <img class="app-sidebar__user-avatar" src="../images/hay.jpg" width="50px"
+            <img class="app-sidebar__user-avatar" src="~/Admin/images/hay.jpg" width="50px"
                  alt="User Image">
             <div>
                 <p class="app-sidebar__user-name"><b>Nguyễn Vĩ Khang</b></p>
@@ -113,7 +113,7 @@
                         <div class="row element-button">
                             <div class="col-sm-2">
 
-                                <a class="btn btn-add btn-sm" href="form-add-san-pham.html" title="Thêm">
+                                <a class="btn btn-add btn-sm" href="@Url.Action("AddProduct")" title="Thêm">
                                     <i class="fas fa-plus"></i>
                                     Tạo mới sản phẩm
                                 </a>
@@ -153,7 +153,7 @@
                             <thead>
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
-                                    <th>Mã sản phẩm</th>
+                                    <th>ID sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Ảnh</th>
                                     <th>Số lượng</th>
@@ -163,25 +163,29 @@
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @{ConnectionMysql cms = new ConnectionMysql();
-                                    var query = cms.SQL_query_to_DataTable("select * from product");
-                                    foreach (System.Data.DataRow dr in query.Rows)
+                            <tbody runat="server">
+                                @{ LT.NET_project_cuoiki.DAO.ProductAdminDAO pad = new LT.NET_project_cuoiki.DAO.ProductAdminDAO();
+                                    foreach (LT.NET_project_cuoiki.Models.ProductEntity pe in pad.loadListProductFromDB())
                                     {
-                                        <tr>
+                                        <tr runat="server">
                                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                            <td>@dr[columnName: "id"].ToString()</td>
-                                            <td>@dr[columnName: "title"].ToString()</td>
-                                            <td><img src="@dr[columnName: "thumbnail"].ToString()" alt="" width="100px" height="50px"></td>
-                                            <td>40</td>
-                                            <td><span class="badge bg-success">Còn hàng</span></td>
-                                            <td>@dr[columnName: "price"].ToString()</td>
-                                            <td>@dr[columnName: "category_id"].ToString()</td>
+                                            <td>@pe.Id</td>
+                                            <td width="30%">@pe.Title</td>
+                                            <td><img src="@Url.Content(@pe.Thumbnail)" alt="" runat="server" width="100px" height="50px" asp-append-version="true"></td>
+                                            <td>@pe.Quantity</td>
                                             <td>
-                                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                                        onclick="myFunction(this)">
+                                                <span class="badge bg-success">
+                                                    @pe.Status
+                                                </span>
+                                            </td>
+                                            <td>@pe.Price</td>
+                                            <td>@pe.Category</td>
+                                            <td width="8%">
+                                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                                        onclick="myFunction(this)" style="color:red"
+                                                   href="DeleteProductByAdmin?pid=@pe.Id">
                                                     <i class="fas fa-trash-alt"></i>
-                                                </button>
+                                                </a>
                                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
                                                         data-target="#ModalUP">
                                                     <i class="fas fa-edit"></i>
@@ -191,198 +195,6 @@
                                         </tr>
                                     }
                                 }
-
-                                @*<tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>61304005</td>
-            <td>Vòng thạch anh tóc cam Brazil 16.5mm</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/2.jpg" alt="" width="100px;"></td>
-            <td>70</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>24.200.000 đ</td>
-            <td>Bàn ăn</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>62304003</td>
-            <td>Vòng thạch anh tóc cam Brazil 14.5mm</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/3.jpg" alt="" width="100px;"></td>
-            <td>40</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>33.235.000 đ</td>
-            <td>Bàn ăn</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>72638003</td>
-            <td>Vòng thạch anh tóc cam Brazil 13.5mm</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/4.jpg" alt="" width="100px;"></td>
-            <td>50</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>950.000 đ</td>
-            <td>Ghế gỗ</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>72109004</td>
-            <td>Văn Thù bồ Tát Đá Cẩm Thạch (Trung : 3x 2.3 cm)</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/1.jpg" alt="" width="100px;"></td>
-            <td>50</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>3.800.000 đ</td>
-            <td>Ghế gỗ</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>82716001</td>
-            <td>Văn Thù bồ Tát Đá Cẩm Thạch (Trung : 3x 2.3 cm)</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/2.jpg" alt="" width="100px;"></td>
-            <td>55</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>4.600.000 đ</td>
-            <td>Ghế gỗ</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>72109001</td>
-            <td>Tỳ hưu thạch anh tím</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/3.jpg" alt="" width="100px;"></td>
-            <td>38</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>1.100.000 đ</td>
-            <td>Ghế gỗ</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>71304041</td>
-            <td>Tỳ hưu pha lê bọc bạc màu xanh lá</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/4.jpg" alt="" width="100px;"></td>
-            <td>80</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>21.550.000 đ</td>
-            <td>Bàn thông minh</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>71304037</td>
-            <td>Tỳ hưu pha lê bọc bạc màu xanh lá</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/4.jpg" alt="" width="100px;"></td>
-            <td>80</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>16.770.000 đ</td>
-            <td>Bàn thông minh</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>
-        <tr>
-            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-            <td>71304037</td>
-            <td>Tỳ hưu pha lê bọc bạc màu xanh lá</td>
-            <td><img src="../img-sanpham/MDCPhongThuy/4.jpg" alt="" width="100px;"></td>
-            <td>80</td>
-            <td><span class="badge bg-success">Còn hàng</span></td>
-            <td>16.770.000 đ</td>
-            <td>Bàn thông minh</td>
-            <td>
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP">
-                    <i class="fas fa-edit"></i>
-                </button>
-
-            </td>
-        </tr>*@
-                                <!--                                -->
-
                             </tbody>
                         </table>
                     </div>
@@ -409,48 +221,45 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="control-label">Mã sản phẩm </label>
+                            <label class="control-label">ID sản phẩm </label>
                             <input class="form-control" type="number" value="71309005">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Tên sản phẩm</label>
                             <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Loại đá</label>
+                            <input class="form-control" type="text">
+                        </div>
                         <div class="form-group  col-md-6">
                             <label class="control-label">Số lượng</label>
                             <input class="form-control" type="number" required value="20">
                         </div>
                         <div class="form-group col-md-6 ">
-                            <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
+                            <label for="exampleSelect1" class="control-label">Màu sắc</label>
                             <select class="form-control" id="exampleSelect1">
-                                <option>Còn hàng</option>
-                                <option>Hết hàng</option>
-                                <option>Đang nhập hàng</option>
+                                <option>-- Chọn màu sắc --</option>
+                                <option>Đen</option>
+                                <option>Xanh da trời</option>
+                                <option>Nâu</option>
+                                <option>Màu Gold</option>
+                                <option>Xanh lá</option>
+                                <option>Nhiều màu</option>
+                                <option>Cam</option>
+                                <option>Hồng</option>
+                                <option>Tím</option>
+                                <option>Đỏ</option>
+                                <option>Trắng</option>
+                                <option>Vàng</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Giá bán</label>
                             <input class="form-control" type="text" value="5.600.000">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleSelect1" class="control-label">Danh mục</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Bàn ăn</option>
-                                <option>Bàn thông minh</option>
-                                <option>Tủ</option>
-                                <option>Ghế gỗ</option>
-                                <option>Ghế sắt</option>
-                                <option>Giường người lớn</option>
-                                <option>Giường trẻ em</option>
-                                <option>Bàn trang điểm</option>
-                                <option>Giá đỡ</option>
-                            </select>
-                        </div>
                     </div>
                     <BR>
-                    <a href="#" style="    float: right;
-    font-weight: 600;
-    color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
                     <BR>
                     <BR>
                     <button class="btn btn-save" type="button">Lưu lại</button>
@@ -466,19 +275,19 @@
     MODAL
     -->
     <!-- Essential javascripts for application to work-->
-    <script src="~/Admin/doc/css/main.cssjs/jquery-3.2.1.min.js"></script>
-    <script src="~/Admin/doc/css/main.cssjs/popper.min.js"></script>
-    <script src="~/Admin/doc/css/main.cssjs/bootstrap.min.js"></script>
+    <script src="~/Admin/doc/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Admin/doc/js/popper.min.js"></script>
+    <script src="~/Admin/doc/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="src/jquery.table2excel.js"></script>
-    <script src="~/Admin/doc/css/main.cssjs/main.js"></script>
+    <script src="~/Admin/doc/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="~/Admin/doc/css/main.cssjs/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Data table plugin-->
-    <script type="text/javascript" src="~/Admin/doc/css/main.cssjs/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="~/Admin/doc/css/main.cssjs/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Admin/doc/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Admin/doc/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
         //Thời Gian
@@ -522,7 +331,7 @@
       }
     }
     </script>
-    <script>
+    @*<script>
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);
@@ -548,7 +357,7 @@
             $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
             e.stopImmediatePropagation();
         });
-    </script>
+    </script>*@
 </body>
 
 </html>

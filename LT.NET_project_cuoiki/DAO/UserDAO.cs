@@ -1,12 +1,7 @@
-﻿using LT.NET_project_cuoiki.Entity;
-using LT.NET_project_cuoiki.Models;
+﻿using LT.NET_project_cuoiki.Models;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Web.Helpers;
-using System.Web.UI.WebControls;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace LT.NET_project_cuoiki.dao
 {

@@ -1,14 +1,14 @@
 ﻿@using LT.NET_project_cuoiki.Models;
 @{
     ViewBag.Title = "_MainLayout";
-    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>;
+    var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>;
     if (cartList == null)
     {
-        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>();
+        cartList = new Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>();
     }
     else
     {
-        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.ProductInCart>)Session["cartItem"];
+        cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>)Session["cartItem"];
     }
 
 }
@@ -82,7 +82,7 @@
                     <button type="button" class="search-btn">
                         <i class="fa-solid fa-magnifying-glass"></i>Tìm
                         kiếm
-                    </button>
+                    </button>   
                     <button>
                         @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Giỏ hàng(100)</a>*@
                         <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
@@ -113,7 +113,7 @@
                         <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         <button>
                             @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>*@
-                            <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng(100)", "Cart", "Shop")
+                            <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
                         </button>
                         <button>
                             @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i></a>*@
@@ -189,10 +189,20 @@
                         <li>Mặt dây chuyền</li>
                     </ul>
                 </div>
-                <div class="main-modal-search">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <!--<div class="main-modal-search">
+                    <input type="text" name="searchkey" placeholder="Tìm kiếm sản phẩm...">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+                    <input type=" submit" name=" submit" value="Tìm kiếm" class=" form-control" />
+                </div>-->
+                <form name="timkiem">
+                    <div class="form-group form-inline">
+                        <input placeholder="Tìm kiếm sản phẩm..." type="text" name="searchkey" class="form-control" />
+                        <input type="submit" name="submit" value="Tìm kiếm" class="form-control"/>
+                    </div>
+
+
+                </form>
+
             </div>
             <div class="hide-modal-search"></div>
 

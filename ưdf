@@ -1,0 +1,41 @@
+[33mcommit df20685e9927220c88f9d01d1e494cd01e67ecef[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Thu Dec 22 20:13:37 2022 +0700
+
+    quantity, checkout
+
+[33mcommit d94fe35f1968c09468cf6ffe4d5a489079b968f4[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Thu Dec 22 11:56:03 2022 +0700
+
+    delete item in cart and display all cart item in checkout
+
+[33mcommit 61bce39cc83bbc3f21e8d0f4821dc2bd8eb5dd74[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Wed Dec 21 23:59:38 2022 +0700
+
+    add delete all and get total
+
+[33mcommit 8ecd4316c4e6cf72b17799755911cc433c748e2e[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Wed Dec 21 21:16:37 2022 +0700
+
+    fix add to cart
+
+[33mcommit c3be8c65193fe7e74b25c0aae5d35cc4c0e4199f[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Wed Dec 21 10:49:11 2022 +0700
+
+    delete file
+
+[33mcommit 6168c411a244a8f8b90b20231f53f17270a4ea9a[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Wed Dec 21 09:53:10 2022 +0700
+
+    add to cart
+
+[33mcommit cb8283164b72489690c0ea9439c1eb7f8cc4fea5[m
+Author: Nguyễn Phi Khanh <20130288@st.hcmuaf.edu.vn>
+Date:   Mon Dec 19 17:25:44 2022 +0700
+
+    upload project

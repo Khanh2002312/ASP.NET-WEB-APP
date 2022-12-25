@@ -1,4 +1,5 @@
-﻿
+﻿@using LT.NET_project_cuoiki.Models
+@model List<LT.NET_project_cuoiki.Models.ProductEntity>
 <link rel="stylesheet" href="~/Asset/css/home.css">
 
 <!-- body page -->
@@ -25,15 +26,15 @@
         <div class="body_page-popular-product">
             <div class="body_page-popular-product-card">
                 <a href=""><img src="~/Asset/img/banner/banner-1.jpg" alt=""></a>
-                <button><a href="product.html">Khám phá ngay</a></button>
+                <button><a href="/Shop/Product">Khám phá ngay</a></button>
             </div>
             <div class="body_page-popular-product-card">
                 <a href=""><img src="~/Asset/img/banner/banner-2.jpg" alt=""></a>
-                <button><a href="product.html">Khám phá ngay</a></button>
+                <button><a href="/Shop/Product">Khám phá ngay</a></button>
             </div>
             <div class="body_page-popular-product-card">
                 <a href=""><img src="~/Asset/img/banner/banner-3.jpg" alt=""></a>
-                <button><a href="product.html">Khám phá ngay</a></button>
+                <button><a href="/Shop/Product">Khám phá ngay</a></button>
             </div>
         </div>
 
@@ -47,259 +48,50 @@
             </div>
 
             <div class="body_page-trending-product-list">
+                @foreach (var item in Model.Take(15))
+                {
+                    string price = item.Price.ToString();
+                    string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
 
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng đeo tay bằng Ruby và Kim cương 18K</p>
-                        <span>3.169.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
+                    string discount = item.Discount.ToString();
+                    string discountForm;
+                    if (discount.Length < 6)
+                    {
+                        discountForm = priceForm;
+                    }
+                    else
+                    {
 
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html"><img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt=""></a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Nhẫn Ngọc lục bảo và Kim cương 14K</p>
-                        <span>5.090.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
+                        discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                    }
 
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng cổ Sapphire và Kim cương 18K</p>
-                        <span>1.088.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
+                    <div class="body_page-trending-product-list-card">
+                        <div class="card-image">
+                            <a href="@Url.Action("../Shop/Details", new { id = item.Id })">
+                                <img src="~/Asset/@item.Thumbnail"
+                                     alt="">
+                            </a>
+                        </div>
+                        <div class="card-title-price">
+                            <p>@item.Title</p>
+                            @if (discount.Length >= 6)
+                            {
+                                <span> <strike style="color:gray"> @Html.Raw(priceForm) </strike></span>
 
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/pendants/pendant_aquamarine-1.jpeg" alt="">
-                        </a>
+                            }
+                            <span>@Html.Raw(discountForm)</span>
+                        </div>
+                        <div class="card-btn">
+                            <button><a href="@Url.Action("../Shop/Details", new { id = item.Id })">Chi tiết</a></button>
+                            <button><a href="/Home/AddToCart?productId=@item.Id" class="addtocart">Thêm vào giỏ</a></button>
+                        </div>
                     </div>
-                    <div class="card-title-price">
-                        <p>Mặt dây chuyền Aquamarine và Kim cương 14K</p>
-                        <span>1.129.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
 
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/earrings/earring_garnet-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Hoa tai đính đá Anthill Garnet Châu Phi 18K</p>
-                        <span>829.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/earrings/earring_amethyst-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Bông tai Thạch anh tím và kim cương Siberia Vàng trắng</p>
-                        <span>2.970.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/bracelets/bracelet_quartz-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng Tay Thạch Anh Ưu Linh Trắng 8mm Mix Hoa Mẫu Đơn</p>
-                        <span>1.784.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/rings/ring_tanzanite-2.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Nhẫn Tanzanite và Kim cương Vàng trắng 14K</p>
-                        <span>1.180.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/pendants/pendant_ruby-2.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Mặt dây chuyền trái tim Ruby và Vàng 14K</p>
-                        <span>1.713.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/rings/ring_pearl-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Nhẫn Ngọc trai nước ngọt và Kim cương 14k</p>
-                        <span>2.285.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/bracelets/bracelet_quartz-2.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng Tay Thạch Anh Ưu Linh Trắng 8mm Mix Bạc</p>
-                        <span>1.734.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/earrings/earring_ruby-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Hoa tai Ruby và Kim cương Vàng 18K</p>
-                        <span>2.484.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/bracelets/bracelet_amethyst-1.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng tay thạch anh tím Siberia 14K</p>
-                        <span>5.035.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/earrings/earring_aquamarine-1.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Hoa tai Aquamarine và Kim cương 14K</p>
-                        <span>3.265.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
-                <div class="body_page-trending-product-list-card">
-                    <div class="card-image">
-                        <a href="productdetails.html">
-                            <img src="~/Asset/img/main_products/necklaces/necklace_emerald-1.jpeg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="card-title-price">
-                        <p>Vòng cổ Ngọc lục bảo và Kim cương 14K</p>
-                        <span>1.394.000 đ</span>
-                    </div>
-                    <div class="card-btn">
-                        <button><a href="productdetails.html">Chi tiết</a></button>
-                        <button>Thêm vào giỏ</button>
-                    </div>
-                </div>
-
+                }
             </div>
 
             <div class="body_page-trending-product-seeMoreBtn">
-                <button><a href="product.html">Xem thêm</a></button>
+                <button><a href="/Shop/Product">Xem thêm</a></button>
             </div>
 
         </div>
@@ -387,7 +179,7 @@
             </div>
 
             <div class="body_page-trending-product-seeMoreBtn">
-                <button><a href="">Xem thêm</a></button>
+                <button><a href="/Shop/Product">Xem thêm</a></button>
             </div>
 
         </div>

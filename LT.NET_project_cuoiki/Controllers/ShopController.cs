@@ -1,9 +1,8 @@
 ﻿using LT.NET_project_cuoiki.dao;
-using LT.NET_project_cuoiki.Entity;
+using LT.NET_project_cuoiki.DAO;
 using LT.NET_project_cuoiki.Models;
 using System;
 using System.Collections.Generic;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Services.Description;
 
@@ -15,6 +14,7 @@ namespace LT.NET_project_cuoiki.Controllers
         // GET: Shop
         public ActionResult Product()
         {
+
             //load product
             ProductDAO productDAO = new ProductDAO();
             List<ProductEntity> productList = new List<ProductEntity>();
@@ -103,11 +103,13 @@ namespace LT.NET_project_cuoiki.Controllers
         }
         public ActionResult Cart()
         {
-
-            AddToCart();
-            return View();
-
-
+            var cart = Session["cartItem"];
+            var map = new Dictionary<string, CartItem>();
+            if (cart != null)
+            {
+                map = (Dictionary<string, CartItem>)cart;
+            }
+            return View(map);
         }
 
         public ActionResult About()
@@ -157,36 +159,111 @@ namespace LT.NET_project_cuoiki.Controllers
             return View();
         }
 
-        [HttpGet]
-        public void AddToCart()
+        public void AddToCartMethod(int productId, int quantity)
         {
-            string id = Session["inputId"] as string;
-
-            Dictionary<string, ProductInCart> cartMap = Session["cartItem"] as Dictionary<string, ProductInCart>;
-            ProductDAO productDAO = new ProductDAO();
-            ProductEntity product = productDAO.getProductById(id);
-            ProductInCart p;
-            if (cartMap == null)
+            Dictionary<string, CartItem> cartmap = Session["cartitem"] as Dictionary<string, CartItem>;
+            ProductDAO productdao = new ProductDAO();
+            ProductEntity product = productdao.getProductById(productId.ToString());
+            CartItem p;
+            if (cartmap == null)
             {
-                cartMap = new Dictionary<string, ProductInCart>();
-                p = new ProductInCart(product, 1);
-                cartMap.Add(id, p);
+                cartmap = new Dictionary<string, CartItem>();
+                p = new CartItem(product, quantity);
+                cartmap.Add(productId.ToString(), p);
+                Session["cartItem"] = cartmap;
             }
             else
             {
-                if (cartMap.ContainsKey(id))
+                if (cartmap.ContainsKey(productId.ToString()))
                 {
-                    p = cartMap[id];
+                    p = cartmap[productId.ToString()];
                     p.incrementQuantity();
+                    Session["cartItem"] = cartmap;
                 }
                 else
                 {
-                    p = new ProductInCart(product, 1);
-                    cartMap.Add(id, p);
+                    p = new CartItem(product, quantity);
+                    cartmap.Add(productId.ToString(), p);
+                    Session["cartItem"] = cartmap;
                 }
             }
-           
+
+            Session["cartItem"] = cartmap;
+        }
+        [HttpGet]
+        public ActionResult AddToCart(int productId)
+        {
+
+            AddToCartMethod(productId, 1);
+            return RedirectToAction("Product");
+        }
+        [HttpGet]
+        public ActionResult AddToCartDetail(int productId, int quantity)
+        {
+            AddToCartMethod(productId, 1);
+            return RedirectToAction("Details/" + productId);
+        }
+        [HttpGet]
+        public ActionResult DeleteAllItem()
+        {
+            Session["cartItem"] = null;
+
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult DeleteItem(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            cartMap.Remove(productId);
             Session["cartItem"] = cartMap;
+
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult IncrementQuantity(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            int num = cartMap[productId].Quantity;
+            num++;
+            cartMap[productId].Quantity = num;
+            Session["cartItem"] = cartMap;
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult DecrementQuantity(string productId)
+        {
+            Dictionary<string, CartItem> cartMap = (Dictionary<string, CartItem>)Session["cartItem"];
+            int num = cartMap[productId].Quantity;
+            num--;
+            cartMap[productId].Quantity = num;
+            Session["cartItem"] = cartMap;
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public ActionResult buyNow(int id)
+        {
+            AddToCartMethod(id, 1);
+            return RedirectToAction("Checkout");
+        }
+
+        [HttpGet]
+        public ActionResult CheckoutControl(string name, string hnum, string ward, string county, string province, string mail, string phone, string note)
+        {
+
+            CheckoutDAO checkoutDAO = new CheckoutDAO();
+            Dictionary<string, CartItem> map = Session["cartItem"] as Dictionary<string, CartItem>;
+            if (map != null)
+            {
+                checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map);
+            }
+            else
+            {
+                return RedirectToAction("Product");
+            }
+            Session["cartItem"] = null;
+
+            return Content("<a href=\"/Shop/Product\" style=\"margin:auto\">GO BACK</a>" +
+                "<script language='javascript' type='text/javascript'>alert('Đặt hàng thành công!');</script>");
 
         }
         // POST: Shop/Create

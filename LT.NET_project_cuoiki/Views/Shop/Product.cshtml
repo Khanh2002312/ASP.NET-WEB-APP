@@ -1,16 +1,10 @@
-﻿@model IEnumerable<LT.NET_project_cuoiki.Entity.ProductEntity>
+﻿@using LT.NET_project_cuoiki.Models
+@model IEnumerable<LT.NET_project_cuoiki.Models.ProductEntity>
 
 @{
     ViewBag.Title = "productControl";
-    Layout = "~/Views/Shared/_MainLayout.cshtml"; IDictionary<int, LT.NET_project_cuoiki.Models.ProductInCart> cartList = Session["cartItem"] as Dictionary<int, LT.NET_project_cuoiki.Models.ProductInCart>;
-    if (cartList == null)
-    {
-        cartList = new Dictionary<int, LT.NET_project_cuoiki.Models.ProductInCart>();
-    }
-    String url = HttpContext.Current.Request.Url.AbsoluteUri;
-
-    Session["inputId"] = HttpUtility.ParseQueryString(new Uri(url).Query).Get("inputId");
-
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    
 }
 <link rel="stylesheet" href="~/Asset/css/main.css">
 <link rel="stylesheet" href="~/Asset/css/product.css">
@@ -198,57 +192,41 @@
                         <div class="sidebar_widget-content">
                             <div class="featured_products">
                                 <ul>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/bracelets/bracelet_ruby-2.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Vòng đeo tay bằng Ruby và Kim cương 18K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>3.169.000 đ</span>
+                                    @foreach (var item in Model.Take(3))
+                                    {
+                                        string price = item.Price.ToString();
+                                        string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
+
+                                        string discount = item.Discount.ToString();
+                                        string discountForm;
+                                        if (discount.Length < 6)
+                                        {
+                                            discountForm = priceForm;
+                                        }
+                                        else
+                                        {
+
+                                            discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                        }
+                                        <li>
+                                            <div class="featured_products-wrapper">
+                                                <div class="featured_products-thumb">
+                                                    <a href="@Url.Action("Details", new { id = item.Id })">
+                                                        <img src="~/Asset/@item.Thumbnail" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="featured_products-content">
+                                                    <h5>
+                                                        <a href="@Url.Action("Details", new { id = item.Id })">@item.Title</a>
+                                                    </h5>
+                                                    <div class="price">
+                                                        <span>@discountForm</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/rings/ring_emerald-2.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Nhẫn Ngọc lục bảo và Kim cương 14K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>5.090.000 đ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="featured_products-wrapper">
-                                            <div class="featured_products-thumb">
-                                                <a href="productdetails.html">
-                                                    <img src="~/Asset/img/main_products/necklaces/necklace_sapphire-1.jpeg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="featured_products-content">
-                                                <h5>
-                                                    <a href="">Vòng cổ Sapphire và Kim cương 18K</a>
-                                                </h5>
-                                                <div class="price">
-                                                    <span>1.088.000 đ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    }
+
                                 </ul>
                             </div>
                         </div>
@@ -283,8 +261,17 @@
                                 {
                                     string price = item.Price.ToString();
                                     string priceForm = price.Substring(0, price.Length - 6) + "." + price.Substring(price.Length - 6, 3) + "." + price.Substring(price.Length - 3) + " đ";
+
                                     string discount = item.Discount.ToString();
-                                    string discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                    string discountForm;
+                                    if (discount.Length < 6)
+                                    {
+                                        discountForm = priceForm;
+                                    } else
+                                    {
+
+                                        discountForm = discount.Substring(0, discount.Length - 6) + "." + discount.Substring(discount.Length - 6, 3) + "." + discount.Substring(discount.Length - 3) + " đ";
+                                    }
 
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                         <div class="body_page-trending-product-list-card">
@@ -293,26 +280,21 @@
                                             </div>
                                             <div class="card-title-price">
                                                 <p>@Html.DisplayFor(modelItem => item.Title)</p>
+                                                @if (discount.Length >= 6)
+                                                {
                                                 <span> <strike style="color:gray"> @Html.Raw(priceForm) </strike></span>
-                                                <span>  @Html.Raw(discountForm)</span>
+
+                                                }
+                                                    <span>  @Html.Raw(discountForm)</span>
                                             </div>
                                             <div class="card-btn">
                                                 <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
-                                                @using (Html.BeginForm("AddToCart", "Shop/Product", FormMethod.Get))
-                                                {
-                                                    <input type="hidden" value="@item.Id"
-                                                           name="inputId" id="inputId">
-                                                    <button type="submit">Thêm vào giỏ</button>
-                                                }
 
-
+                                                <button><a href="/Shop/AddToCart?productId=@item.Id" class="addtocart">Thêm vào giỏ</a></button>
                                             </div>
                                         </div>
                                     </div>
                                 }
-
-
-
                             </div>
                         </div>
                         <div class="tab-content-item fade active show" id="pills-grid-2" role="tabpanel"

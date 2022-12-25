@@ -1,4 +1,4 @@
-﻿@using LT.NET_project_cuoiki.Entity
+﻿@using LT.NET_project_cuoiki.Models
 
 @model LT.NET_project_cuoiki.Models.DetailModel
 
@@ -89,40 +89,53 @@
                                 <span class="button plus">+</span>
                             </div>
                         </div>
-                        <div class="size_wrapper">
-                            <div style="margin-right: 15px">Kích cỡ</div>
-                            <select class="select_size">
-                                <option>-- Vui lòng chọn --</option>
-                                <option>5 - 15.6mm</option>
-                                <option>5.5 - 16.0mm</option>
-                                <option>6 - 16.45mm</option>
-                                <option>6.5 - 16.9mm</option>
-                                <option>7 - 17.3mm</option>
-                                <option>7.5 - 17.7mm</option>
-                                <option>8 - 18.2mm</option>
-                                <option>8.5 - 18.6mm</option>
-                                <option>9 - 19.0mm</option>
-                                <option>9.5 - 19.4mm</option>
-                                <option>10 - 19.8mm</option>
-                                <option>10.5 - 20.2mm</option>
-                                <option>11 - 20.6mm</option>
-                                <option>11.5 - 21.0mm</option>
-                                <option>12 - 21.4mm</option>
-                                <option>12.5 - 21.8mm</option>
-                                <option>13.5 - 22.2mm</option>
-                            </select>
-                        </div>
+                        @if (Model.CategoryName == "Nhẫn")
+                        {
+                            <div class="size_wrapper">
+                                <div style="margin-right: 15px">Kích cỡ</div>
+                                <select class="select_size">
+                                    <option>-- Vui lòng chọn --</option>
+                                    <option>5 - 15.6mm</option>
+                                    <option>5.5 - 16.0mm</option>
+                                    <option>6 - 16.45mm</option>
+                                    <option>6.5 - 16.9mm</option>
+                                    <option>7 - 17.3mm</option>
+                                    <option>7.5 - 17.7mm</option>
+                                    <option>8 - 18.2mm</option>
+                                    <option>8.5 - 18.6mm</option>
+                                    <option>9 - 19.0mm</option>
+                                    <option>9.5 - 19.4mm</option>
+                                    <option>10 - 19.8mm</option>
+                                    <option>10.5 - 20.2mm</option>
+                                    <option>11 - 20.6mm</option>
+                                    <option>11.5 - 21.0mm</option>
+                                    <option>12 - 21.4mm</option>
+                                    <option>12.5 - 21.8mm</option>
+                                    <option>13.5 - 22.2mm</option>
+                                </select>
+                            </div>
+                        }
+
                     </div>
                     <!-- Trigger/Open The Modal -->
-                    <button id="myBtn"><span>Hướng dẫn chọn kích cỡ<i class="fa-solid fa-chevron-right"></i></span></button>
+                    @if (Model.CategoryName == "Nhẫn")
+                    {
+
+                        <button id="myBtn"><span>Hướng dẫn chọn kích cỡ<i class="fa-solid fa-chevron-right"></i></span></button>
+                    }
                     <div class="btn-groups">
                         <button type="button" class="add_cart_btn">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            thêm vào giỏ hàng
+                            <a href="/Shop/AddToCartDetail?productId=@Model.Product.Id&quantity=1" class="addtocart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                thêm vào giỏ hàng
+                            </a>
+                           
                         </button>
                         <button type="button" class="buy_now_btn">
-                            <i class="fa-solid fa-wallet"></i>
-                            mua ngay
+                            <a href="/Shop/buyNow?id=@Model.Product.Id" class="buynow">
+                                <i class="fa-solid fa-wallet"></i>
+                                mua ngay
+                            </a>
                         </button>
                     </div>
                 </div>
@@ -285,7 +298,7 @@
                         </div>
                         <div class="card-btn">
                             <button><a href="@Url.Action("Details", new { id = item.Id })">Chi tiết</a></button>
-                            <button>Thêm vào giỏ</button>
+                            <button><a href="/Shop/AddToCartDetail?productId=@Model.Product.Id&quantity=1" class="addtocart">Thêm vào giỏ</a></button>
                         </div>
                     </div>
                 </li>

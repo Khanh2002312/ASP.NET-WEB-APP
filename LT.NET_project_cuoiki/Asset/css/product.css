@@ -274,7 +274,6 @@ html a:hover {
 
     .body_page-trending-product-list-card .card-btn {
         padding: 0 0 10px 0;
-        display: inline-block;
     }
 
         .body_page-trending-product-list-card .card-btn button {
@@ -286,27 +285,23 @@ html a:hover {
             border-radius: 6px;
             cursor: pointer;
             transition: all.3s;
-            display: inline-block;
         }
 
-        .body_page-trending-product-list-card .card-btn form {
-            display: inline-block;
-        }
 
-        .body_page-trending-product-list-card .card-btn button a {
-            color: #bc8247;
-            transition: all .3s;
-        }
+            .body_page-trending-product-list-card .card-btn button a {
+                color: #bc8247;
+                transition: all .3s;
+            }
 
-        .body_page-trending-product-list-card .card-btn button:hover a {
-            color: #fff;
-        }
+            .body_page-trending-product-list-card .card-btn button:hover a {
+                color: #fff;
+            }
 
-        .body_page-trending-product-list-card .card-btn button:hover {
-            transform: scale(0.9);
-            background: #bc8247;
-            color: #fff;
-        }
+            .body_page-trending-product-list-card .card-btn button:hover {
+                transform: scale(0.9);
+                background: #bc8247;
+                color: #fff;
+            }
 
 .pagenav {
     position: relative;
