@@ -93,272 +93,273 @@
             </div>
         </div>
 
-        <div class="checkout-container">
-            <div class="left-container">
-
-
-                <div class="checkout-area">
-                    <h3>Chi Tiết Thanh Toán</h3>
-                    <form id="information" runat="servet"></form>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="lastName">Họ Và Tên<span style="color: red">*</span></label>
-                            <input type="text" id="lastName" placeholder="Họ Và Tên">
-                        </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="streetAddress">
-                                Số Nhà, Tên Đường <span style="color: red">*</span>
-                            </label>
-                            <input type="text" id="streetAddress" placeholder="Số Nhà, Tên Đường">
-                        </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="ward">Phường / Xã <span style="color: red">*</span></label>
-                            <input type="text" id="ward" placeholder="Phường / Xã">
-                        </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="district">Quận / Huyện <span style="color: red">*</span></label>
-                            <input type="text" id="district" placeholder="Quận / Huyện">
-                        </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="city">Tỉnh / Thành Phố <span style="color: red">*</span></label>
-                            <input type="text" id="city" placeholder="Tỉnh / Thành Phố">
-                        </div>
-                    </div>
-                    <div class="item-2">
+        <form action="/Shop/CheckoutControl" method="get">
+            <div class="checkout-container">
+                <div class="left-container">
+                    <div class="checkout-area">
+                        <h3>Chi Tiết Thanh Toán</h3>
+                       
                         <div class="item-1">
                             <div class="input-text">
-                                <label for="mail">Địa Chỉ Email <span style="color: red">*</span></label>
-                                <input type="email" id="mail" placeholder="Địa Chỉ Email">
+                                <label for="lastName">Họ Và Tên<span style="color: red">*</span></label>
+                                <input type="text" id="lastName" placeholder="Họ Và Tên" name="name">
                             </div>
                         </div>
                         <div class="item-1">
                             <div class="input-text">
-                                <label for="phone">Số Điện Thoại <span style="color: red">*</span></label>
-                                <input type="tel" id="phone" placeholder="Số Điện Thoại">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <input type="checkbox" id="newAccount">
-                            <label for="newAccount" id="label-New-Account">Tạo Tài Khoản Mới?</label>
-                        </div>
-                    </div>
-                    <div class="newAccount">
-
-                        <div class="item-1">
-                            <p>
-                                Tạo tài khoản mới bằng cách nhập vào thông tin bên dưới. Nếu bạn đã có tài khoản,
-                                xin
-                                hãy đăng nhập ở phần đầu trang
-                            </p>
-                            <div class="input-text">
-                                <label for="pass">Mật Khẩu <span style="color: red">*</span></label>
-                                <input type="password" id="pass" placeholder="Nhập Mật Khẩu">
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="difference-Add">
-                        Giao Tới Một Địa Chỉ Khác? <input type="checkbox"
-                                                          class="difference" style="width: 18px;height: 18px;">
-                    </h3>
-                    <div id="difference-Add">
-
-
-                        <div class="item-1">
-                            <div class="input-text">
-                                <label for="lastName2">Họ Và Tên <span style="color: red">*</span></label>
-                                <input type="text" id="lastName2" placeholder="Họ Và Tên">
-                            </div>
-                        </div>
-
-
-                        <div class="item-1">
-                            <div class="input-text">
-                                <label for="streetAddress2">
+                                <label for="streetAddress">
                                     Số Nhà, Tên Đường <span style="color: red">*</span>
                                 </label>
-                                <input type="text" id="streetAddress2" placeholder="Số Nhà, Tên Đường">
+                                <input type="text" id="streetAddress" placeholder="Số Nhà, Tên Đường" name="hnum">
                             </div>
                         </div>
                         <div class="item-1">
                             <div class="input-text">
-                                <label for="ward2">Phường / Xã <span style="color: red">*</span></label>
-                                <input type="text" id="ward2" placeholder="Phường / Xã">
+                                <label for="ward">Phường / Xã <span style="color: red">*</span></label>
+                                <input type="text" id="ward" placeholder="Phường / Xã" name="ward">
                             </div>
                         </div>
                         <div class="item-1">
                             <div class="input-text">
-                                <label for="district2">Quận / Huyện <span style="color: red">*</span></label>
-                                <input type="text" id="district2" placeholder="Quận / Huyện">
+                                <label for="district">Quận / Huyện <span style="color: red">*</span></label>
+                                <input type="text" id="district" placeholder="Quận / Huyện" name="county">
                             </div>
                         </div>
                         <div class="item-1">
                             <div class="input-text">
-                                <label for="city2">Tỉnh / Thành Phố <span style="color: red">*</span></label>
-                                <input type="text" id="city2" placeholder="Tỉnh / Thành Phố">
+                                <label for="city">Tỉnh / Thành Phố <span style="color: red">*</span></label>
+                                <input type="text" id="city" placeholder="Tỉnh / Thành Phố" name="province">
                             </div>
                         </div>
                         <div class="item-2">
                             <div class="item-1">
                                 <div class="input-text">
-                                    <label for="mail2">Địa Chỉ Email <span style="color: red">*</span></label>
-                                    <input type="email" id="mail2" placeholder="Địa Chỉ Email">
+                                    <label for="mail">Địa Chỉ Email <span style="color: red">*</span></label>
+                                    <input type="email" id="mail" placeholder="Địa Chỉ Email" name="mail">
                                 </div>
                             </div>
                             <div class="item-1">
                                 <div class="input-text">
-                                    <label for="phone2">Số Điện Thoại <span style="color: red">*</span></label>
-                                    <input type="tel" id="phone2" placeholder="Số Điện Thoại">
+                                    <label for="phone">Số Điện Thoại <span style="color: red">*</span></label>
+                                    <input type="tel" id="phone" placeholder="Số Điện Thoại" name="phone">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item-1">
-                        <div class="input-text">
-                            <label for="note">Ghi Chú</label>
-                            <textarea name="note" id="note" cols="30" rows="10"
-                                      placeholder="Ghi chú về đơn hàng của bạn, ví dụ: lưu ý đặc biệt về vận chuyển..."></textarea>
+                        <div class="item-1">
+                            <div class="input-text">
+                                <input type="checkbox" id="newAccount">
+                                <label for="newAccount" id="label-New-Account">Tạo Tài Khoản Mới?</label>
+                            </div>
+                        </div>
+                        <div class="newAccount">
+
+                            <div class="item-1">
+                                <p>
+                                    Tạo tài khoản mới bằng cách nhập vào thông tin bên dưới. Nếu bạn đã có tài khoản,
+                                    xin
+                                    hãy đăng nhập ở phần đầu trang
+                                </p>
+                                <div class="input-text">
+                                    <label for="pass">Mật Khẩu <span style="color: red">*</span></label>
+                                    <input type="password" id="pass" placeholder="Nhập Mật Khẩu">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="difference-Add">
+                            Giao Tới Một Địa Chỉ Khác? <input type="checkbox"
+                                                              class="difference" style="width: 18px;height: 18px;">
+                        </h3>
+                        <div id="difference-Add">
+
+
+                            <div class="item-1">
+                                <div class="input-text">
+                                    <label for="lastName2">Họ Và Tên <span style="color: red">*</span></label>
+                                    <input type="text" id="lastName2" placeholder="Họ Và Tên">
+                                </div>
+                            </div>
+
+
+                            <div class="item-1">
+                                <div class="input-text">
+                                    <label for="streetAddress2">
+                                        Số Nhà, Tên Đường <span style="color: red">*</span>
+                                    </label>
+                                    <input type="text" id="streetAddress2" placeholder="Số Nhà, Tên Đường">
+                                </div>
+                            </div>
+                            <div class="item-1">
+                                <div class="input-text">
+                                    <label for="ward2">Phường / Xã <span style="color: red">*</span></label>
+                                    <input type="text" id="ward2" placeholder="Phường / Xã">
+                                </div>
+                            </div>
+                            <div class="item-1">
+                                <div class="input-text">
+                                    <label for="district2">Quận / Huyện <span style="color: red">*</span></label>
+                                    <input type="text" id="district2" placeholder="Quận / Huyện">
+                                </div>
+                            </div>
+                            <div class="item-1">
+                                <div class="input-text">
+                                    <label for="city2">Tỉnh / Thành Phố <span style="color: red">*</span></label>
+                                    <input type="text" id="city2" placeholder="Tỉnh / Thành Phố">
+                                </div>
+                            </div>
+                            <div class="item-2">
+                                <div class="item-1">
+                                    <div class="input-text">
+                                        <label for="mail2">Địa Chỉ Email <span style="color: red">*</span></label>
+                                        <input type="email" id="mail2" placeholder="Địa Chỉ Email">
+                                    </div>
+                                </div>
+                                <div class="item-1">
+                                    <div class="input-text">
+                                        <label for="phone2">Số Điện Thoại <span style="color: red">*</span></label>
+                                        <input type="tel" id="phone2" placeholder="Số Điện Thoại">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-1">
+                            <div class="input-text">
+                                <label for="note">Ghi Chú</label>
+                                <textarea name="note" id="note" cols="30" rows="10"
+                                          placeholder="Ghi chú về đơn hàng của bạn, ví dụ: lưu ý đặc biệt về vận chuyển..."></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="right-container">
+                <div class="right-container">
 
 
-                <div class="your-order">
-                    <h3>Đơn Hàng Của Bạn</h3>
-                    <div class="order-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sản Phẩm</th>
-                                    <th>Tổng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div class="your-order">
+                        <h3>Đơn Hàng Của Bạn</h3>
+                        <div class="order-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sản Phẩm</th>
+                                        <th>Tổng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
+                                    {
+                                        string total;
+                                        if (entry.Value.Product.Discount != 0)
+                                        {
+
+                                            total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
+                                        }
+                                        else
+                                        {
+                                            total = (entry.Value.Product.Price * entry.Value.Quantity).ToString();
+                                        }
+                                        string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
+                                        <tr>
+                                            <td>
+
+                                                @entry.Value.Product.Title
+                                                x <strong>
+                                                    @entry.Value.Quantity
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                @totalForm
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                @{
+                                    String totalString = "";
+                                    int totalInt = 0;
+                                }
+
                                 @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
                                 {
-                                    string total;
                                     if (entry.Value.Product.Discount != 0)
                                     {
+                                        totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
 
-                                        total = (entry.Value.Product.Discount * entry.Value.Quantity).ToString();
-                                    } else
-                                    {
-                                        total = (entry.Value.Product.Price * entry.Value.Quantity).ToString();
                                     }
-                                    string totalForm = total.Substring(0, total.Length - 6) + "." + total.Substring(total.Length - 6, 3) + "." + total.Substring(total.Length - 3) + " đ";
-                                    <tr>
-                                        <td>
-
-                                            @entry.Value.Product.Title
-                                            x <strong>
-                                                @entry.Value.Quantity
+                                    else
+                                    {
+                                        totalInt += (entry.Value.Product.Price * entry.Value.Quantity);
+                                    }
+                                    String totalS = totalInt.ToString();
+                                    totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
+                                }
+                                <tfoot>
+                                    <tr class="cartSubtotal">
+                                        <th>Tổng Giỏ Hàng</th>
+                                        <td><span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span></td>
+                                    </tr>
+                                    <tr class="order-total">
+                                        <th style="border-bottom: none;">Tổng Đơn Hàng</th>
+                                        <td style="border-bottom: none;">
+                                            <strong>
+                                                <span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span>
                                             </strong>
                                         </td>
-                                        <td>
-                                            @totalForm
-                                        </td>
                                     </tr>
-                                }
-                            </tbody>
-                            @{
-                                String totalString = "";
-                                int totalInt = 0;
-                            }
-
-                            @foreach (KeyValuePair<string, LT.NET_project_cuoiki.Models.CartItem> entry in cartMap)
-                            {
-                                if(entry.Value.Product.Discount != 0)
-                                {
-                                    totalInt += (entry.Value.Product.Discount * entry.Value.Quantity);
-
-                                } else
-                                {
-                                    totalInt += (entry.Value.Product.Price * entry.Value.Quantity);
-                                }
-                                String totalS = totalInt.ToString();
-                                totalString = totalS.Substring(0, totalS.Length - 6) + "." + totalS.Substring(totalS.Length - 6, 3) + "." + totalS.Substring(totalS.Length - 3) + " đ";
-                            }
-                            <tfoot>
-                                <tr class="cartSubtotal">
-                                    <th>Tổng Giỏ Hàng</th>
-                                    <td><span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span></td>
-                                </tr>
-                                <tr class="order-total">
-                                    <th style="border-bottom: none;">Tổng Đơn Hàng</th>
-                                    <td style="border-bottom: none;">
-                                        <strong>
-                                            <span class="amount">@(totalString == "" ? "0 ₫" : totalString)</span>
-                                        </strong>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="collapsible_set">
-                            <button id="collapsible1" onclick="payment(this.id)">
-                                <h5>
-                                    THANH TOÁN KHI NHẬN HÀNG
-                                    (COD)
-                                </h5>
-                            </button>
-                            <div class="content1 show">
-                                <p>
-                                    Hình thức thanh toán khi nhận hàng, giao hàng thu tiền.
-                                    Người
-                                    mua với hình thức ship COD chỉ thanh toán tiền khi nhận được hàng, sau đó
-                                    tiền sẽ
-                                    chuyển về cho người bán thông qua đơn vị vận chuyển trên.
-                                </p>
+                                </tfoot>
+                            </table>
+                            <div class="collapsible_set">
+                                <button id="collapsible1" onclick="payment(this.id)">
+                                    <h5>
+                                        THANH TOÁN KHI NHẬN HÀNG
+                                        (COD)
+                                    </h5>
+                                </button>
+                                <div class="content1 show">
+                                    <p>
+                                        Hình thức thanh toán khi nhận hàng, giao hàng thu tiền.
+                                        Người
+                                        mua với hình thức ship COD chỉ thanh toán tiền khi nhận được hàng, sau đó
+                                        tiền sẽ
+                                        chuyển về cho người bán thông qua đơn vị vận chuyển trên.
+                                    </p>
+                                </div>
+                                <button id="collapsible2" onclick="payment(this.id)">
+                                    <h5>
+                                        THANH TOÁN BẰNG MOBILE
+                                        BANKING
+                                    </h5>
+                                </button>
+                                <div class="content2">
+                                    <p>
+                                        Thanh toán hoá đơn chỉ với một chiếc điện thoại đã được cài đặt
+                                        sẵn ứng dụng của các ngân hàng và có kết nối mạng. Hệ thống thanh toán qua
+                                        Mobile
+                                        Banking đang được các nhà cung cấp dịch vụ nâng cấp để đáp ứng được tối đa
+                                        nhu cầu
+                                        của khách hàng.
+                                    </p>
+                                </div>
+                                <button id="collapsible3" onclick="payment(this.id)">
+                                    <h5>
+                                        THANH TOÁN BẰNG VÍ ĐIỆN TỬ
+                                    </h5>
+                                </button>
+                                <div class="content3">
+                                    <p>
+                                        Hình thức thanh toán hoá đơn bằng ví điện tử được sử dụng rộng
+                                        rãi trong thời đại ngày nay. Chỉ với một vài thao tác đơn giản là bạn có thể
+                                        thanh
+                                        toán tại bất kỳ nơi nào chấp nhận thanh toán. Một số ví điện tử phổ biến
+                                        hiện nay:
+                                        Momo, Zalo Pay, SmartPay,ViettelPay...
+                                    </p>
+                                </div>
                             </div>
-                            <button id="collapsible2" onclick="payment(this.id)">
-                                <h5>
-                                    THANH TOÁN BẰNG MOBILE
-                                    BANKING
-                                </h5>
-                            </button>
-                            <div class="content2">
-                                <p>
-                                    Thanh toán hoá đơn chỉ với một chiếc điện thoại đã được cài đặt
-                                    sẵn ứng dụng của các ngân hàng và có kết nối mạng. Hệ thống thanh toán qua
-                                    Mobile
-                                    Banking đang được các nhà cung cấp dịch vụ nâng cấp để đáp ứng được tối đa
-                                    nhu cầu
-                                    của khách hàng.
-                                </p>
-                            </div>
-                            <button id="collapsible3" onclick="payment(this.id)">
-                                <h5>
-                                    THANH TOÁN BẰNG VÍ ĐIỆN TỬ
-                                </h5>
-                            </button>
-                            <div class="content3">
-                                <p>
-                                    Hình thức thanh toán hoá đơn bằng ví điện tử được sử dụng rộng
-                                    rãi trong thời đại ngày nay. Chỉ với một vài thao tác đơn giản là bạn có thể
-                                    thanh
-                                    toán tại bất kỳ nơi nào chấp nhận thanh toán. Một số ví điện tử phổ biến
-                                    hiện nay:
-                                    Momo, Zalo Pay, SmartPay,ViettelPay...
-                                </p>
-                            </div>
+                            <button class="place-order" type="submit">ĐẶT HÀNG</button>
                         </div>
-                        <button class="place-order">ĐẶT HÀNG</button>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </form>
 
     </div>
 

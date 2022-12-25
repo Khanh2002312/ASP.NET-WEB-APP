@@ -1,4 +1,5 @@
 ﻿using LT.NET_project_cuoiki.dao;
+using LT.NET_project_cuoiki.DAO;
 using LT.NET_project_cuoiki.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -162,6 +163,27 @@ namespace LT.NET_project_cuoiki.Controllers
         {
             AddToCartMethod(id, 1);
             return RedirectToAction("Checkout");
+        }
+
+        [HttpGet]
+        public ActionResult CheckoutControl(string name, string hnum, string ward, string county, string province, string mail, string phone, string note)
+        {
+
+            CheckoutDAO checkoutDAO = new CheckoutDAO();
+            Dictionary<string, CartItem> map = Session["cartItem"] as Dictionary<string, CartItem>;
+            if (map != null)
+            {
+                checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map);
+            }
+            else
+            {
+                return RedirectToAction("Product");
+            }
+            Session["cartItem"] = null;
+
+            return Content("<a href=\"/Shop/Product\" style=\"margin:auto\">GO BACK</a>" +
+                "<script language='javascript' type='text/javascript'>alert('Đặt hàng thành công!');</script>");
+
         }
         // POST: Shop/Create
         [HttpPost]
