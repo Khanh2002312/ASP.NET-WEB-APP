@@ -86,5 +86,18 @@ namespace LT.NET_project_cuoiki.Controllers
             return RedirectToAction("tableDataProduct");
         }
 
+        public ActionResult EditProduct()
+        {
+            return View();
+        }
+
+
+        public ActionResult EditProductByAdmin(int e_id, string e_name, string e_catName,
+            string e_nameGem, string e_quantity, string e_color, int e_price)
+        {
+            new ProductAdminDAO().EditProduct(e_id, e_name, e_catName, e_nameGem, e_quantity, e_color, e_price);
+            return RedirectToAction("tableDataProduct");
+        }
+
     }
 }

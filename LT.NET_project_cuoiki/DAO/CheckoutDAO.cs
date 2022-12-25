@@ -48,11 +48,11 @@ namespace LT.NET_project_cuoiki.DAO
             }
             return result;
         }
-        public void addCheckout(string fullname, string hnum, string ward, string county, string province, string mail, string phone, string note, Dictionary<string, CartItem> map)
+        public void addCheckout(string fullname, string hnum, string ward, string county, string province, string mail, string phone, string note, Dictionary<string, CartItem> map, string userId)
         {
 
-            string query_order = "INSERT INTO `order`(full_name,shipping_address,email,phone_number,order_date,order_total,payment_method,`status`) \r\nVALUES (@name,@addId,@mail,@phone,NOW(),@ordertotal,'Ship COD',1)";
-            string query_order_detail = "INSERT INTO order_details(product_id, order_id,price,quantity,total_money) VALUES (@productId,@orderId,@price,@quantity,@total)";
+            string query_order = "INSERT INTO `order`(full_name,user_id,shipping_address,email,phone_number,order_date,order_total,payment_method,`status`) \r\nVALUES (@name,@userId,@addId,@mail,@phone,NOW(),@ordertotal,'Ship COD',1)";
+            string query_order_detail = "INSERT INTO order_details(product_id,order_id,price,quantity,total_money) VALUES (@productId,@orderId,@price,@quantity,@total)";
             string query_address = "INSERT INTO address(hnum_sname,ward_commune,county_district,province_city) VALUES (@hnum,@ward,@county,@province)";
 
             MySqlConnection mySqlConnection = new ConnectionMysql().OpenConnection();
@@ -76,6 +76,14 @@ namespace LT.NET_project_cuoiki.DAO
             commandOrder.CommandText = query_order;
 
             commandOrder.Parameters.AddWithValue("@name", fullname);
+            if (userId != null)
+            {
+                commandOrder.Parameters.AddWithValue("@userId", Int32.Parse(userId));
+            }
+            else
+            {
+                commandOrder.Parameters.AddWithValue("@userId", userId);
+            }
             commandOrder.Parameters.AddWithValue("@addId", getAddressId(hnum, ward, county, province));
             commandOrder.Parameters.AddWithValue("@mail", mail);
             commandOrder.Parameters.AddWithValue("@phone", phone);

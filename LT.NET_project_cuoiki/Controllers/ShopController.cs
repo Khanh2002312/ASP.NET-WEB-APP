@@ -4,7 +4,6 @@ using LT.NET_project_cuoiki.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace LT.NET_project_cuoiki.Controllers
 {
@@ -61,14 +60,16 @@ namespace LT.NET_project_cuoiki.Controllers
                 {
                     Session["user"] = model;
                     return RedirectToAction("Index", "Home");
-                } else
+                }
+                else
                 {
                     ViewBag.Notify = "Tên đăng nhập hoặc mật khẩu không đúng";
                     return View();
 
                 }
 
-            } else
+            }
+            else
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -132,7 +133,7 @@ namespace LT.NET_project_cuoiki.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ForgotPass(string username) 
+        public ActionResult ForgotPass(string username)
         {
             UserDAO userDAO = new UserDAO();
             UserModel userModel = userDAO.checkUserExist(username);
@@ -144,13 +145,13 @@ namespace LT.NET_project_cuoiki.Controllers
             else
             {
                 Random r = new Random();
-                int newPass = r.Next(100000,999999);
+                int newPass = r.Next(100000, 999999);
                 userDAO.forgotPassword(username, newPass);
                 userDAO.sendMaillForgotPassword(userModel.Email, newPass);
                 ViewBag.Notify = "Mật khẩu mới đã được gửi về email của bạn";
                 return View();
             }
-            
+
         }
 
         // GET: Shop/Create
@@ -254,7 +255,16 @@ namespace LT.NET_project_cuoiki.Controllers
             Dictionary<string, CartItem> map = Session["cartItem"] as Dictionary<string, CartItem>;
             if (map != null)
             {
-                checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map);
+                if (Session["user"] == null)
+                {
+                    checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, null);
+                }
+                else
+                {
+                    UserModel userModel = (UserModel)Session["user"];
+
+                    checkoutDAO.addCheckout(name, hnum, ward, county, province, mail, phone, note, map, userModel.Id.ToString());
+                }
             }
             else
             {

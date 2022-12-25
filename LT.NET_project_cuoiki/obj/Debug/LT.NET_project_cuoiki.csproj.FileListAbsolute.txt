@@ -407,3 +407,9 @@ E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Newto
 E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Antlr3.Runtime.pdb
 E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\.Student\Nam3_HK1\.Net\Backup\ASP.NET-WEB-APP\LT.NET_project_cuoiki\obj\Debug\LT.NET_project_cuoiki.csproj.CopyComplete
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Net.Http.Formatting.dll
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Web.Http.dll
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Web.Http.WebHost.dll
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Net.Http.Formatting.xml
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Web.Http.xml
+Y:\.net\LT.NET_project_cuoiki\LT.NET_project_cuoiki\LT.NET_project_cuoiki\bin\System.Web.Http.WebHost.xml
