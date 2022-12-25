@@ -127,11 +127,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="DAO\CheckoutDAO.cs" />
     <Compile Include="DAO\ProductAdminDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="Models\AddProductForAdminModel.cs" />
-    <Compile Include="DAO\AddProductInAdminDAO.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CheckoutModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Global.asax.cs">

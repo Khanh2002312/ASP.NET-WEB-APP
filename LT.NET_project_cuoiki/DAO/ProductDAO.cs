@@ -34,7 +34,7 @@ namespace LT.NET_project_cuoiki.dao
         }
 
         
-         public List<ProductEntity> getProductByKey()
+         public List<ProductEntity> getProductByKey(string key)
         {
             List<ProductEntity> products = new List<ProductEntity>();
 
