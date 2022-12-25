@@ -27,61 +27,101 @@
             <div class="text-header">
                 <h3>Đăng Nhập</h3>
             </div>
-            <form action="">
-                <label for="email">Tên đăng nhập hoặc email <span>*</span></label>
-                <input id="email" type="email" placeholder="Tên đăng nhập hoặc email ...">
-                <label for="pass">Mật Khẩu <span>*</span></label>
-                <input id="pass" type="password" placeholder="Nhập Mật Khẩu...">
-                <div class="save">
-                    <div class="save-container">
+            @using (Html.BeginForm("Login", "Shop"))
+            {
+                <form method="post">
+                    <h4 style="text-align: center; font-size: 16px; color: red;">@ViewBag.Notify</h4>
+                    <label for="email">Tên đăng nhập<span>*</span></label>
+                    <input id="email" type="text" placeholder="Tên đăng nhập ..." name="username">
+                    <label for="pass">Mật Khẩu <span>*</span></label>
+                    <input id="pass" type="password" placeholder="Nhập Mật Khẩu..." name="password">
+                    <div class="save">
+                        <div class="save-container">
 
-                        <input id="save" type="checkbox">
-                        <label for="save">Nhớ Mật Khẩu!</label>
-                    </div>
-                    <div class="lost-pass">
-                        @Html.ActionLink("Quên Mật Khẩu?", "ForgotPass", "Shop")
-                        @*<a href="lostpassword.html">Quên Mật Khẩu?</a>*@
-                    </div>
+                            <input id="save" type="checkbox">
+                            <label for="save">Nhớ Mật Khẩu!</label>
+                        </div>
+                        <div class="lost-pass">
+                            @Html.ActionLink("Quên Mật Khẩu?", "ForgotPass", "Shop")
+                            @*<a href="lostpassword.html">Quên Mật Khẩu?</a>*@
+                        </div>
 
-                </div>
-                <button class="login-button" type="submit">ĐĂNG NHẬP</button>
-                <div class="or">
-                    <span>HOẶC</span>
-                </div>
-                <button class="register-button " id="register-button-login">ĐĂNG KÝ</button>
-                <div class="other_login">
-                    <div class="login_google"><button><i class="fa-brands fa-google-plus-g"></i></button></div>
-                    <div class="login_facebook"><button><i class="fa-brands fa-facebook-f"></i></button></div>
-                </div>
-            </form>
+                    </div>
+                    <button class="login-button" type="submit">ĐĂNG NHẬP</button>
+                    <div class="or">
+                        <span>HOẶC</span>
+                    </div>
+                    <button class="register-button " id="register-button-login">ĐĂNG KÝ</button>
+                    <div class="other_login">
+                        <div class="login_google"><button><i class="fa-brands fa-google-plus-g"></i></button></div>
+                        <div class="login_facebook"><button><i class="fa-brands fa-facebook-f"></i></button></div>
+                    </div>
+                </form>
+            }
         </div>
     </div>
     <!--        Register Form-->
+    @if (ViewBag.NotifyRegister == null)
+    {
     <div class="modal">
         <div class="modal-content">
-
             <div class="register-container">
                 <div class="close"><a href="" id="closeButton"><i class="fa-solid fa-xmark"></i></a></div>
                 <div class="text-header">
                     <h3>Đăng Ký</h3>
                 </div>
-                <form action="">
-                    <label for="uname">Tên Đăng Nhập <span>*</span></label>
-                    <input id="uname" type="text" placeholder="Nhập Tên Đăng Nhập...">
-                    <label for="email-register">Địa Chỉ Email <span>*</span></label>
-                    <input id="email-register" type="email" placeholder="Địa Chỉ Email...">
-                    <label for="pass-register">Mật Khẩu <span>*</span></label>
-                    <input id="pass-register" type="password" placeholder="Nhập Mật Khẩu...">
+            @using (Html.BeginForm("Register", "Shop")) { 
+            <form action="" method="post">
+                <h4 style="text-align: center; font-size: 16px; color: red;">@ViewBag.NotifyRegister</h4>
+                <label for="uname">Tên Đăng Nhập <span>*</span></label>
+                <input id="uname" type="text" placeholder="Nhập Tên Đăng Nhập..." name="username">
+                <label for="email-register">Địa Chỉ Email <span>*</span></label>
+                <input id="email-register" type="email" placeholder="Địa Chỉ Email..." name="email">
+                <label for="pass-register">Mật Khẩu <span>*</span></label>
+                <input id="pass-register" type="password" placeholder="Nhập Mật Khẩu..." name="password">
 
-                    <button class="register-button">ĐĂNG KÝ</button>
-                    <div class="or">
-                        <span>HOẶC</span>
-                    </div>
-                    <button class="login-button" id="login-button-register">ĐĂNG NHẬP</button>
-                </form>
+                <button class="register-button">ĐĂNG KÝ</button>
+                <div class="or">
+                    <span>HOẶC</span>
+                </div>
+                <button class="login-button" id="login-button-register">ĐĂNG NHẬP</button>
+            </form>
+            }
             </div>
         </div>
     </div>
+    }
+    else
+    { 
+    <div class="modal" style="visibility: visible; opacity: 1;">
+        <div class="modal-content" style="visibility: visible; transform: scale(1); opacity: 1;">
+            <div class="register-container">
+                <div class="close"><a href="" id="closeButton"><i class="fa-solid fa-xmark"></i></a></div>
+                <div class="text-header">
+                    <h3>Đăng Ký</h3>
+                </div>
+                @using (Html.BeginForm("Register", "Shop"))
+                {
+                    <form action="" method="post">
+                        <h4 style="text-align: center; font-size: 16px; color: red;">@ViewBag.NotifyRegister</h4>
+                        <label for="uname">Tên Đăng Nhập <span>*</span></label>
+                        <input id="uname" type="text" placeholder="Nhập Tên Đăng Nhập..." name="username">
+                        <label for="email-register">Địa Chỉ Email <span>*</span></label>
+                        <input id="email-register" type="email" placeholder="Địa Chỉ Email..." name="email">
+                        <label for="pass-register">Mật Khẩu <span>*</span></label>
+                        <input id="pass-register" type="password" placeholder="Nhập Mật Khẩu..." name="password">
+
+                        <button class="register-button">ĐĂNG KÝ</button>
+                        <div class="or">
+                            <span>HOẶC</span>
+                        </div>
+                        <button class="login-button" id="login-button-register">ĐĂNG NHẬP</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+    }
 
 
 </div>
