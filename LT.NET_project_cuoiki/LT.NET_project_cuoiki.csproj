@@ -143,7 +143,10 @@
     <Compile Include="Models\AddProductForAdminModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CheckoutModel.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\ColorProduct.cs" />
     <Compile Include="Models\DetailModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

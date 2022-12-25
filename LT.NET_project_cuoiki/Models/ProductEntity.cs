@@ -1,8 +1,9 @@
-﻿namespace LT.NET_project_cuoiki.Models
+namespace LT.NET_project_cuoiki.Models
 {
     public class ProductEntity
     {
         int id;
+        int id_category;
         string category;
         string title, keyword;
         int price;
@@ -18,6 +19,7 @@
         string typeGem;
 
         public int Id { get => id; set => id = value; }
+        public int Id_category { get => id_category; set => id_category = value; }
         public string Category { get => category; set => category = value; }
         public string Title { get => title; set => title = value; }
         public string Keyword { get => keyword; set => keyword = value; }
@@ -64,9 +66,10 @@
         {
         }
 
-        public ProductEntity(int id, string title, string thumbnail, int quantity, string status, int price, string category)
+        public ProductEntity(int id, int id_category, string title, string thumbnail, int quantity, string status, int price, string category)
         {
             this.id = id;
+            this.id_category = id_category;
             this.category = category;
             this.title = title;
             this.price = price;
@@ -75,9 +78,10 @@
             this.status = status;
         }
 
-        public ProductEntity(int id, string category, string title, string keyword, int price, string design, string description, int quantity, string color, string img_link, string typeGem)
+        public ProductEntity(int id, int id_category, string category, string title, string keyword, int price, string design, string description, int quantity, string color, string img_link, string typeGem)
         {
             this.id = id;
+            this.id_category= id_category;
             this.category = category;
             this.title = title;
             this.keyword = keyword;
@@ -89,5 +93,8 @@
             this.img_link = img_link;
             this.typeGem = typeGem;
         }
+
+
+
     }
 }
