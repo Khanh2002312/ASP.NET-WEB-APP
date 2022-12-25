@@ -1,4 +1,4 @@
-﻿
+﻿@using LT.NET_project_cuoiki.Models;
 @{
     ViewBag.Title = "_MainLayout";
     var cartList = Session["cartItem"] as Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>;
@@ -57,7 +57,6 @@
                             <a href="">Trang<i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="header_page-category-sub-menu">
                                 <li>
-                                    @*<a href="@Url.Action("Login", new {id = 1})" style="font-weight: normal">Đăng nhập</a>*@
                                     @Html.ActionLink("Đăng nhập", "Login", "Shop")
                                 </li>
                                 <li>
@@ -89,8 +88,18 @@
                         <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
                     </button>
                     <button>
-                    @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i>Tài khoản</a>*@
-                        <i class="fa-solid fa-user"></i> @Html.ActionLink("Đăng nhập", "Login", "Shop")
+                        @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i>Tài khoản</a>*@
+                        <i class="fa-solid fa-user"></i>
+                        @{
+                            var check = (UserModel)Session["user"];
+                        }
+                        @if (check != null)
+                        {
+                            @Html.ActionLink("Xin chào " + check.Username, "Login", "Shop")
+                            @Html.ActionLink("(Thoát)", "SignOut", "Shop")
+                        } else {
+                            @Html.ActionLink("Đăng nhập", "Login", "Shop")
+                        }
                     </button>
                 </div>
 
@@ -108,7 +117,8 @@
                         </button>
                         <button>
                             @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i></a>*@
-                            <i class="fa-solid fa-user"></i> @Html.ActionLink("Đăng nhập", "Login", "Shop")
+                            <i class="fa-solid fa-user"></i> 
+                            @Html.ActionLink("Đăng nhập", "Login", "Shop")
                         </button>
                     </div>
 

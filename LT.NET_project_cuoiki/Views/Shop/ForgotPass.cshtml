@@ -33,18 +33,34 @@
                 <h3>Tìm Tài Khoản Của Bạn</h3>
             </div>
             <div class="message">
-                <p>Vui lòng nhập email để tìm kiếm tài khoản của bạn</p>
+                <p>Vui lòng nhập tên tài khoản để gửi mật khẩu mới về email của bạn</p>
             </div>
-            <form action="">
+            @using (Html.BeginForm("ForgotPass", "Shop"))
+            {
+            <form action="" method="post">
+                @if (ViewBag.Notify == "Tài khoản không tồn tại")
+                {
+                    <h4 style="text-align: center; font-size: 16px; color: red; padding: 10px 0px 20px">@ViewBag.Notify</h4>
+                }
+                else if (ViewBag.Notify == "Mật khẩu mới đã được gửi về email của bạn")
+                {
+                    <h4 style="text-align: center; font-size: 16px; color: green; padding:10px 0px 20px">@ViewBag.Notify</h4>
+                }
+                else
+                {
 
-                <input id="email" type="email" placeholder="Địa Chỉ Email...">
+                }
+                <input id="email" type="text" placeholder="Tài khoản đăng nhập của bạn...." name="username" style="padding: 0 20px; width: 100%; height: 60px; border: 2px solid #eaedff; color: #6f7172; margin-bottom: 20px; font-size: inherit; line-height: inherit;">
 
 
                 <button class="find-button ">TÌM KIẾM</button>
 
-                <button class="cancel-button">HỦY</button>
+                <div style="text-align:center">
+                    @Html.ActionLink("Trở về trang đăng nhập", "Login", "Shop")
+                </div>
 
             </form>
+            }
         </div>
     </div>
 

@@ -1,14 +1,15 @@
 ﻿using LT.NET_project_cuoiki.dao;
 using LT.NET_project_cuoiki.DAO;
 using LT.NET_project_cuoiki.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace LT.NET_project_cuoiki.Controllers
 {
     public class ShopController : Controller
     {
-
         ConnectionMysql connection = new ConnectionMysql();
         // GET: Shop
         public ActionResult Product()
@@ -35,12 +36,71 @@ namespace LT.NET_project_cuoiki.Controllers
 
             return View(detailModel);
         }
-
+        [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            UserModel check = (UserModel)Session["user"];
+            if (check == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
+        [HttpPost]
+        public ActionResult Login(string username, string password)
+        {
+            UserModel check = (UserModel)Session["user"];
+            if (check == null)
+            {
+                UserDAO user = new UserDAO();
+                UserModel model = user.Login(username, password);
+                if (model != null)
+                {
+                    Session["user"] = model;
+                    return RedirectToAction("Index", "Home");
+                } else
+                {
+                    ViewBag.Notify = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    return View();
 
+                }
+
+            } else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return RedirectToAction("Login", "Shop");
+        }
+        [HttpPost]
+        public ActionResult Register(string username, string email, string password)
+        {
+            UserDAO userDAO = new UserDAO();
+            UserModel userModel = userDAO.checkUserExist(username);
+            if (userModel != null)
+            {
+                ViewBag.NotifyRegister = "Tên tài khoản đã tồn tại";
+                return View("Login");
+            }
+            else
+            {
+                userDAO.Register(username, email, password);
+                userModel = userDAO.Login(username, password);
+                Session["user"] = userModel;
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        public ActionResult SignOut()
+        {
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
+        }
         public ActionResult Cart()
         {
             var cart = Session["cartItem"];
@@ -66,10 +126,31 @@ namespace LT.NET_project_cuoiki.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult ForgotPass()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPass(string username) 
+        {
+            UserDAO userDAO = new UserDAO();
+            UserModel userModel = userDAO.checkUserExist(username);
+            if (userModel == null)
+            {
+                ViewBag.Notify = "Tài khoản không tồn tại";
+                return View();
+            }
+            else
+            {
+                Random r = new Random();
+                int newPass = r.Next(100000,999999);
+                userDAO.forgotPassword(username, newPass);
+                userDAO.sendMaillForgotPassword(userModel.Email, newPass);
+                ViewBag.Notify = "Mật khẩu mới đã được gửi về email của bạn";
+                return View();
+            }
+            
         }
 
         // GET: Shop/Create
