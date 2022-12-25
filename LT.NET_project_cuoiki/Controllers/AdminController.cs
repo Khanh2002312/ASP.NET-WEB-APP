@@ -61,7 +61,7 @@ namespace LT.NET_project_cuoiki.Controllers
         public void AddProductByAdmin(int id, string title, string typeGem, int quantity,
             string category, string color, int price, string keyword, string designer, string ImageUpload, string mota)
         {
-            
+
 
             if (id == 0 || title == null || typeGem == null || quantity == 0 || category == null || color == null ||
                 price == 0 || keyword == null || designer == null || ImageUpload == null || mota == null)
@@ -71,12 +71,19 @@ namespace LT.NET_project_cuoiki.Controllers
             }
             else
             {
-                new AddProductInAdminDAO().AddProduct(id, title, typeGem, quantity, category,
+                new ProductAdminDAO().AddProduct(id, title, typeGem, quantity, category,
                 color, price, keyword, designer, ImageUpload, mota);
                 Response.Redirect("tableDataProduct");
             }
 
+        }
 
+        [HttpGet]
+        public ActionResult DeleteProductByAdmin(int pid)
+        {
+            pid = Int32.Parse(Request["pid"]);
+            new ProductAdminDAO().DeleteProduct(pid);
+            return RedirectToAction("tableDataProduct");
         }
 
     }

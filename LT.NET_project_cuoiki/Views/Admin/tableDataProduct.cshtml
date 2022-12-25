@@ -170,7 +170,7 @@
                                         <tr runat="server">
                                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                             <td>@pe.Id</td>
-                                            <td>@pe.Title</td>
+                                            <td width="30%">@pe.Title</td>
                                             <td><img src="@Url.Content(@pe.Thumbnail)" alt="" runat="server" width="100px" height="50px" asp-append-version="true"></td>
                                             <td>@pe.Quantity</td>
                                             <td>
@@ -180,11 +180,12 @@
                                             </td>
                                             <td>@pe.Price</td>
                                             <td>@pe.Category</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                                        onclick="myFunction(this)">
+                                            <td width="8%">
+                                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                                        onclick="myFunction(this)" style="color:red"
+                                                   href="DeleteProductByAdmin?pid=@pe.Id">
                                                     <i class="fas fa-trash-alt"></i>
-                                                </button>
+                                                </a>
                                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
                                                         data-target="#ModalUP">
                                                     <i class="fas fa-edit"></i>
@@ -330,7 +331,7 @@
       }
     }
     </script>
-    <script>
+    @*<script>
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);
@@ -356,7 +357,7 @@
             $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
             e.stopImmediatePropagation();
         });
-    </script>
+    </script>*@
 </body>
 
 </html>

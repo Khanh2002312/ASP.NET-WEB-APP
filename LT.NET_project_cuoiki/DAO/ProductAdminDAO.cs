@@ -1,4 +1,5 @@
 ﻿using LT.NET_project_cuoiki.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -76,25 +77,6 @@ namespace LT.NET_project_cuoiki.DAO
             return id_parent;
         }
 
-        public static List<CategoryModel> GetListIdOfCategory(string typeGem)
-        {
-            List<CategoryModel> list_id = new List<CategoryModel>();
-            ConnectionMysql cms = new ConnectionMysql();
-            var query_cat = cms.SQL_query_to_DataTable("select * from category");
-            foreach (DataRow dr in query_cat.Rows)
-            {
-                if (typeGem.Equals(dr["name"].ToString()))
-                {
-                    CategoryModel cm = new CategoryModel();
-                    cm.Id = Int32.Parse(dr["id"].ToString());
-                    cm.Parent_id = Int32.Parse(dr["parent_id"].ToString());
-                    cm.Name = dr["name"].ToString();
-                    return list_id;
-                }
-            }
-            return list_id;
-        }
-
         public static int GetIdCategory(string typeGem, string category)
         {
             int id_cat = 0;
@@ -113,24 +95,6 @@ namespace LT.NET_project_cuoiki.DAO
             return id_cat;
         }
 
-
-
-        public static string GetTypeGem(int category_id)
-        {
-            string result = "";
-            ConnectionMysql cms = new ConnectionMysql();
-            var query_cat = cms.SQL_query_to_DataTable("select * from category");
-            foreach (DataRow dr in query_cat.Rows)
-            {
-                int id = Convert.ToInt32(dr["id"]);
-                if (category_id == id)
-                {
-                    result = dr["name"].ToString();
-                }
-            }
-            return result;
-        }
-
         public static int getColor(string color)
         {
             int id_color = 0;
@@ -144,6 +108,83 @@ namespace LT.NET_project_cuoiki.DAO
                 }
             }
             return id_color;
+        }
+
+        // function
+        public void AddProduct(int id, string title, string typeGem, int quantity,
+           string category, string color, int price, string keyword, string designer, string ImageUpload, string mota)
+        {
+            string query_insert_color = "INSERT INTO product_gem_color() VALUES(@id_product, @id_color)";
+
+            string query_insert_product = "INSERT INTO product(product.id, product.title, product.category_id, product.quantity, " +
+                "product.price, product.keyword, product.design, product.thumbnail, product.description, " +
+                "product.is_on_sale, product.created_at, product.updated_at, product.discount) VALUES " +
+                "(@id_product, @title, @category_id, @quantity, @price, @keyword, @design, @thumbnail, " +
+                "@description, @is_on_sale, @created_at, @updated_at, @discount)";
+            
+
+            MySqlConnection mySqlConnection = new ConnectionMysql().OpenConnection();
+
+            //
+            MySqlCommand command_product = new MySqlCommand();
+            command_product.Connection = mySqlConnection;
+            command_product.CommandText = query_insert_product;
+
+            command_product.Parameters.AddWithValue("@id_product", id);
+            command_product.Parameters.AddWithValue("@title", title);
+            command_product.Parameters.AddWithValue("@category_id", ProductAdminDAO.GetIdCategory(typeGem, category));
+            command_product.Parameters.AddWithValue("@quantity", quantity);
+            command_product.Parameters.AddWithValue("@price", price);
+            
+            command_product.Parameters.AddWithValue("@keyword", keyword);
+            command_product.Parameters.AddWithValue("@design", designer);
+            command_product.Parameters.AddWithValue("@thumbnail", ImageUpload);
+            command_product.Parameters.AddWithValue("@description", mota);
+
+            
+            command_product.Parameters.AddWithValue("@is_on_sale", 0);
+            command_product.Parameters.AddWithValue("@created_at", DateTime.Now);
+            command_product.Parameters.AddWithValue("@updated_at", DateTime.Now);
+            command_product.Parameters.AddWithValue("@discount", 0);
+
+            command_product.ExecuteNonQuery();
+
+            //
+            MySqlCommand command_color = new MySqlCommand();
+            command_color.Connection = mySqlConnection;
+            command_color.CommandText = query_insert_color;
+
+            command_color.Parameters.AddWithValue("@id_product", id);
+            command_color.Parameters.AddWithValue("@id_color", ProductAdminDAO.getColor(color));
+
+            command_color.ExecuteNonQuery();
+        }
+
+        public void DeleteProduct(int pid)
+        {
+            string que_del_pro_color = "DELETE FROM product_gem_color WHERE product_gem_color.product_id = @pid_color";
+            string que_del_pro = "DELETE FROM product WHERE product.id = @pid_pro";
+
+            MySqlConnection msc = new ConnectionMysql().OpenConnection();
+
+            //
+            MySqlCommand Command_del_color = new MySqlCommand();
+            Command_del_color.Connection = msc;
+            Command_del_color.CommandText = que_del_pro_color;
+
+            Command_del_color.Parameters.AddWithValue("@pid_color", pid);
+
+            Command_del_color.ExecuteNonQuery();
+
+            //
+            MySqlCommand Command_del_product = new MySqlCommand();
+            Command_del_product.Connection = msc;
+            Command_del_product.CommandText = que_del_pro;
+
+            Command_del_product.Parameters.AddWithValue("@pid_pro", pid);
+
+            Command_del_product.ExecuteNonQuery();
+
         }
 
     }
