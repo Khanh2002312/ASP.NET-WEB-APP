@@ -10,7 +10,8 @@
     {
         cartList = (Dictionary<string, LT.NET_project_cuoiki.Models.CartItem>)Session["cartItem"];
     }
-
+ List<LT.NET_project_cuoiki.Models.CategoryModel> listCate = new ProductDAO().loadCategoryModel();
+}
 }
 
 <!DOCTYPE html>
@@ -22,8 +23,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="~/Asset/css/main.css">
-    
-    
+
+
 
     <title>Shop Bán Ngọc Quý</title>
 </head>
@@ -46,11 +47,10 @@
                         <li>
                             @Html.ActionLink("Sản phẩm", "Product", "Shop")
                             <ul class="header_page-category-sub-menu">
-                                <li><a href="">Nhẫn</a></li>
-                                <li><a href="">Hoa tai</a></li>
-                                <li><a href="">Dây chuyền</a></li>
-                                <li><a href="">Vòng tay</a></li>
-                                <li><a href="">Mặt dây chuyền</a></li>
+                                @foreach (var item in listCate)
+                                {
+                                <li><a href="/Shop/Product?id=@item.Id.ToString()">@item.Name</a></li>
+                               }
                             </ul>
                         </li>
                         <li>
@@ -82,7 +82,7 @@
                     <button type="button" class="search-btn">
                         <i class="fa-solid fa-magnifying-glass"></i>Tìm
                         kiếm
-                    </button>   
+                    </button>
                     <button>
                         @*<a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Giỏ hàng(100)</a>*@
                         <i class="fa-solid fa-bag-shopping"></i> @Html.ActionLink("Giỏ hàng("+cartList.Count+")", "Cart", "Shop")
@@ -95,10 +95,10 @@
                         }
                         @if (check != null)
                         {
-                            @Html.ActionLink("Xin chào " + check.Username, "Login", "Shop")
-                            @Html.ActionLink("(Thoát)", "SignOut", "Shop")
+                        @Html.ActionLink("Xin chào " + check.Username, "Login", "Shop")
+                        @Html.ActionLink("(Thoát)", "SignOut", "Shop")
                         } else {
-                            @Html.ActionLink("Đăng nhập", "Login", "Shop")
+                        @Html.ActionLink("Đăng nhập", "Login", "Shop")
                         }
                     </button>
                 </div>
@@ -117,7 +117,7 @@
                         </button>
                         <button>
                             @*<a href="@Url.Action("Login", new {id = 1})"><i class="fa-solid fa-user"></i></a>*@
-                            <i class="fa-solid fa-user"></i> 
+                            <i class="fa-solid fa-user"></i>
                             @Html.ActionLink("Đăng nhập", "Login", "Shop")
                         </button>
                     </div>
@@ -197,7 +197,7 @@
                 <form name="timkiem">
                     <div class="form-group form-inline">
                         <input placeholder="Tìm kiếm sản phẩm..." type="text" name="searchkey" class="form-control" />
-                        <input type="submit" name="submit" value="Tìm kiếm" class="form-control"/>
+                        <input type="submit" name="submit" value="Tìm kiếm" class="form-control" />
                     </div>
 
 
@@ -208,7 +208,7 @@
 
         </div>
 
-       
+
 
         @RenderBody()
         <!-- footer page -->

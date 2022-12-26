@@ -11,13 +11,23 @@ namespace LT.NET_project_cuoiki.Controllers
     {
         ConnectionMysql connection = new ConnectionMysql();
         // GET: Shop
-        public ActionResult Product()
+        [HttpGet]
+        public ActionResult Product(string id)
         {
 
             //load product
             ProductDAO productDAO = new ProductDAO();
-            List<ProductEntity> productList = new List<ProductEntity>();
-            productList = productDAO.getAllProduct();
+            List<ProductEntity> productList;
+            if (id != null)
+            {
+
+                productList = productDAO.getProductByCate(Int32.Parse(id));
+            }
+            else
+            {
+                productList = productDAO.getAllProduct();
+            }
+
 
             return View(productList);
         }
